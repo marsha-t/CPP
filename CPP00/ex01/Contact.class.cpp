@@ -1,15 +1,12 @@
 #include "phonebook.hpp"
 
-// think this constructor is necessary for phonebook to construct array in first instance
 Contact::Contact(void): first_name(""), last_name(""), nickname(""), phone_num(""), darkest_secret("")
 {
-	// std::cout << GREEN << "Contact constructed with empty strings" << RESET << std::endl;
 	return ;
 }
 
 Contact::Contact(std::string *input)
 {
-	// std::cout << GREEN << "Contact constructed with input array" << RESET << std::endl;
 	this->first_name = input[0];
 	this->last_name = input[1];
 	this->nickname = input[2];
@@ -20,7 +17,6 @@ Contact::Contact(std::string *input)
 
 Contact::~Contact(void)
 {
-	// std::cout << GREEN << "Contact destroyed" << RESET << std::endl;
 	return ;
 }
 
@@ -39,8 +35,8 @@ void	Contact::display(void) const
 		if (!temp.empty())
 			std::cout << RESET YELLOW << (this->*memberfunc[i])() << std::endl;
 		else
-			std::cout << RESET YELLOW << "<empty>" << std::endl;
+			std::cout << RESET YELLOW "<empty>" RESET << std::endl;
 	}
-	std::cout << RESET << std::endl;
+	std::cout << std::endl;
 	return ; 
 }

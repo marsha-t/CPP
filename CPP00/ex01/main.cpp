@@ -21,5 +21,5 @@ int	main(void)
 			std::cout << RED << "Invalid command: This phonebook only supports ADD, SEARCH and EXIT" << RESET << std::endl;
 		std::cin.clear();
 	}
-	return (0);
+	return (EXIT_SUCCESS);
 }

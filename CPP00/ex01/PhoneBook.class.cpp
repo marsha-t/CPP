@@ -2,13 +2,11 @@
 
 PhoneBook::PhoneBook(void): _num_contact(0)
 {
-	// std::cout << GREEN << "PhoneBook constructed" << RESET << std::endl;
 	return ;
 }
 
 PhoneBook::~PhoneBook(void)
 {
-	// std::cout << GREEN << "PhoneBook destroyed" << RESET << std::endl;
 	return ;
 }
 
@@ -18,11 +16,11 @@ PhoneBook::~PhoneBook(void)
  */
 void	PhoneBook::start(void) const
 {
-	std::cout << std::endl << YELLOW << "----- USAGE FOR PHONEBOOK -----" << std::endl;
-	std::cout << BOLD << "ADD" << RESET YELLOW << "\tto add contact" << std::endl;
-	std::cout << BOLD << "SEARCH" << RESET YELLOW << "\tto search for contact" << std::endl;
-	std::cout << BOLD << "EXIT" << RESET YELLOW << "\tto exit phonebook" << std::endl;
-	std::cout << "-------------------------------" << RESET << std::endl << std::endl;
+	std::cout << std::endl << YELLOW "----- USAGE FOR PHONEBOOK -----" << std::endl;
+	std::cout << BOLD "ADD" RESET YELLOW "\tto add contact" << std::endl;
+	std::cout << BOLD "SEARCH" RESET YELLOW "\tto search for contact" << std::endl;
+	std::cout << BOLD "EXIT" RESET YELLOW "\tto exit phonebook" << std::endl;
+	std::cout << "-------------------------------" RESET << std::endl << std::endl;
 }
 
 /**
@@ -34,20 +32,20 @@ void	PhoneBook::add_contact(void)
 	std::string	prompt[4] = {"last name", "nickname", "phone number", "darkest secret"};
 	std::string	input[5];
 
-	std::cout << YELLOW BOLD << "Please insert first name of contact" << RESET << std::endl;
+	std::cout << YELLOW BOLD "Please insert first name of contact" RESET << std::endl;
 	getline(std::cin, input[0]);
 	while (input[0].empty())
 	{
-		std::cout << RED << "First name" << " cannot be empty. Please type input." << RESET << std::endl;
+		std::cout << RED "First name cannot be empty. Please type input." RESET << std::endl;
 		getline(std::cin, input[0]);
 	}
 	for (int i = 0; i < 4; i++)
 	{
-		std::cout << YELLOW BOLD << "What is " << input[0] << "'s " << prompt[i] << "?" << RESET << std::endl;
+		std::cout << YELLOW BOLD "What is " << input[0] << "'s " << prompt[i] << "?" RESET << std::endl;
 		getline(std::cin, input[i + 1]);
 		while (input[i + 1].empty())
 		{
-			std::cout << RED << input[0] << "'s " << prompt[i] << " cannot be empty. Please try again." << RESET << std::endl;
+			std::cout << RED << input[0] << "'s " << prompt[i] << " cannot be empty. Please try again." RESET << std::endl;
 			getline(std::cin, input[i + 1]);
 		}
 	}
@@ -75,7 +73,7 @@ void	PhoneBook::display_overview(void) const
 	std::cout << YELLOW BOLD UNDERLINE << std::setw(10) << std::left << "Index" << "|";
 	std::cout << std::setw(10) << std::left << "First Name" << "|";
 	std::cout << std::setw(10) << std::left << "Last Name" << "|";
-	std::cout << std::setw(10) << std::left << "Nickname" << "|" << RESET YELLOW << std::endl;
+	std::cout << std::setw(10) << std::left << "Nickname" << "|" RESET YELLOW << std::endl;
 
 	for (int i = 0; i < 8; i++)
 	{
@@ -87,7 +85,7 @@ void	PhoneBook::display_overview(void) const
 			if (overview[j].length() > 10)
 			{
 				overview[j] = overview[j].substr(0, 10);
-				overview[j][9] = '.'; // check how this works with an exact 10 char len
+				overview[j][9] = '.';
 			}
 			std::cout << std::setw(10) << std::right << overview[j] << "|";
 		}
@@ -106,7 +104,7 @@ void	PhoneBook::_search(void) const
 {
 	int	index;
 
-	std::cout << YELLOW BOLD << "Which entry (between 1 and 8) would you like to display?" << RESET << std::endl;
+	std::cout << YELLOW BOLD "Which entry (between 1 and 8) would you like to display?" RESET << std::endl;
 	while (true)
 	{
 		std::cin >> index;
@@ -120,7 +118,7 @@ void	PhoneBook::_search(void) const
 		{
 			std::cin.clear();
 			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-			std::cout << RED << "Please input valid index between 1 and 8" << RESET << std::endl;
+			std::cout << RED "Please input valid index between 1 and 8." RESET << std::endl;
 		}
 	}
 	return ;

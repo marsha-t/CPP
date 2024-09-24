@@ -5,6 +5,7 @@
 # include <iostream>
 # include <iomanip>
 # include <limits>
+# include <cstdlib>
 # include "Contact.class.hpp"
 # include "PhoneBook.class.hpp"
 

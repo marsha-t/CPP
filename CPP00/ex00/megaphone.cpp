@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cctype>
 #include <string>
-
+#include <cstdlib>
 /**
  * @brief Converts arguments into uppercase
  * 
@@ -22,12 +22,12 @@ int	main(int argc, char **argv)
 			std::string str = argv[i];
 			for (std::string::size_type j = 0; j < str.length(); j++)
 			{
-				std::cout << std::toupper(static_cast<unsigned char>(str[j]));
+				std::cout << static_cast<char>(std::toupper(static_cast<unsigned char>(str[j])));
 			}
 			if (i < argc - 1)
 				std::cout << ' '; 
 		}
 		std::cout << std::endl;
 	}
-	return (0);
+	return (EXIT_SUCCESS);
 }
