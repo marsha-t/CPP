@@ -1,6 +1,6 @@
-NAME = phonebook
+NAME = job
 
-FILES = main.cpp PhoneBook.class.cpp Contact.class.cpp
+FILES = Account.cpp tests.cpp
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
 all: $(NAME)
@@ -14,5 +14,5 @@ clean:
 fclean: clean
 
 re: fclean all
-
+	clear
 .PHONY: all clean fclean re
