@@ -5,13 +5,13 @@ Contact::Contact(void): first_name(""), last_name(""), nickname(""), phone_num("
 	return ;
 }
 
-Contact::Contact(std::string *input)
+Contact::Contact(std::string *input): first_name(input[0]), last_name(input[1]), phone_num(input[2])
 {
-	this->first_name = input[0];
-	this->last_name = input[1];
-	this->nickname = input[2];
-	this->phone_num = input[3];
-	this->darkest_secret = input[4];
+	// this->first_name = input[0];
+	// this->last_name = input[1];
+	// this->nickname = input[2];
+	// this->phone_num = input[3];
+	// this->darkest_secret = input[4];
 	return ;
 }
 
