@@ -33,20 +33,20 @@ void	PhoneBook::add_contact(void)
 	std::string	input[5];
 
 	std::cout << YELLOW BOLD "Please insert first name of contact" RESET << std::endl;
-	getline(std::cin, input[0]);
+	std::getline(std::cin, input[0]);
 	while (input[0].empty())
 	{
 		std::cout << RED "First name cannot be empty. Please type input." RESET << std::endl;
-		getline(std::cin, input[0]);
+		std::getline(std::cin, input[0]);
 	}
 	for (int i = 0; i < 4; i++)
 	{
 		std::cout << YELLOW BOLD "What is " << input[0] << "'s " << prompt[i] << "?" RESET << std::endl;
-		getline(std::cin, input[i + 1]);
+		std::getline(std::cin, input[i + 1]);
 		while (input[i + 1].empty())
 		{
 			std::cout << RED << input[0] << "'s " << prompt[i] << " cannot be empty. Please try again." RESET << std::endl;
-			getline(std::cin, input[i + 1]);
+			std::getline(std::cin, input[i + 1]);
 		}
 	}
 	std::cout << std::endl;

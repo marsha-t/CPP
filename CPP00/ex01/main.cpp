@@ -8,7 +8,7 @@ int	main(void)
 	while (1)
 	{
 		std::cout << YELLOW BOLD << "Type your command" << RESET << std::endl;
-		getline(std::cin, command);
+		std::getline(std::cin, command);
 		// , std::cin >> command;
 		std::cout << std::endl;
 		if (command.compare("ADD") == 0)
