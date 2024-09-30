@@ -2,6 +2,7 @@
 #include <cctype>
 #include <string>
 #include <cstdlib>
+
 /**
  * @brief Converts arguments into uppercase
  * 
@@ -24,8 +25,6 @@ int	main(int argc, char **argv)
 			{
 				std::cout << static_cast<char>(std::toupper(static_cast<unsigned char>(str[j])));
 			}
-			if (i < argc - 1)
-				std::cout << ' '; 
 		}
 		std::cout << std::endl;
 	}

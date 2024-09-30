@@ -21,6 +21,7 @@ void	PhoneBook::start(void) const
 	std::cout << BOLD "SEARCH" RESET YELLOW "\tto search for contact" << std::endl;
 	std::cout << BOLD "EXIT" RESET YELLOW "\tto exit phonebook" << std::endl;
 	std::cout << "-------------------------------" RESET << std::endl << std::endl;
+	return ;
 }
 
 /**

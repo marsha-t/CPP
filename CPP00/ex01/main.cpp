@@ -9,7 +9,6 @@ int	main(void)
 	{
 		std::cout << YELLOW BOLD << "Type your command" << RESET << std::endl;
 		std::getline(std::cin, command);
-		// , std::cin >> command;
 		std::cout << std::endl;
 		if (command.compare("ADD") == 0)
 			pb.add_contact();
