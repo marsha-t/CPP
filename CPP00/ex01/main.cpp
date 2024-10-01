@@ -1,5 +1,9 @@
 #include "phonebook.hpp"
 
+// deal with ctrl d in command prompt
+// input validation for phoone number
+// ADD without space?
+// reordering of index ?
 int	main(void)
 {
 	PhoneBook pb;
