@@ -2,7 +2,10 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-
+////////////////////////////////////////////////////////
+/// ADD validation for permissions in file; empty line in file; 
+// tabs and spaces in file 
+////////////////////////////////////////////////////////
 int	main(int argc, char **argv)
 {
 	if (argc != 4)
