@@ -192,14 +192,14 @@ bool	PhoneBook::_search(void) const
  * @brief	Function checks if string contains only characters
  * 			that should feature in a phone number
  * @param phone_number const reference to string
- * @return true if string consists of digits, space, + or -
+ * @return true if string consists of digits
  * @return false otherwise
  */
 bool PhoneBook::_is_valid_num(const std::string &phone_number) const {
     for (size_t i = 0; i < phone_number.length(); ++i)
 	{
 		char c = phone_number[i];
-        if (!std::isdigit(c) && c != ' ' && c != '+' && c != '-') {
+        if (!std::isdigit(c)) {
             return false;
         }
 	}
