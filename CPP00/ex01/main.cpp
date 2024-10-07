@@ -26,17 +26,17 @@ int	main(void)
 			return (EXIT_FAILURE);
 		}
 		std::cout << std::endl;
-		if (command.compare("ADD") == 0)
+		if (command == "ADD")
 		{
 			if (pb.add_contact() == EXIT_FAILURE)
 				return (EXIT_FAILURE);
 		}
-		else if (command.compare("SEARCH") == 0)
+		else if (command == "SEARCH")
 		{
 			if (pb.display_overview() == EXIT_FAILURE)
 				return (EXIT_FAILURE);
 		} 
-		else if (command.compare("EXIT") == 0)
+		else if (command == "EXIT")
 			return (EXIT_SUCCESS);
 		else
 			std::cout << RED "Invalid command: This phonebook only supports ADD, SEARCH and EXIT" RESET << std::endl;
