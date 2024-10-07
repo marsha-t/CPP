@@ -6,8 +6,8 @@
 /**
  * @brief Converts arguments into uppercase
  * 
- * @param argc 
- * @param argv 
+ * @param argc no. of arguments + program name 
+ * @param argv program name + args
  * @return int 
  */
 int	main(int argc, char **argv)
@@ -18,10 +18,10 @@ int	main(int argc, char **argv)
 	}
 	else
 	{
-		for (int i = 1; i < argc; i++)
+		for (int i = 1; i < argc; ++i)
 		{
 			std::string str = argv[i];
-			for (std::string::size_type j = 0; j < str.length(); j++)
+			for (std::string::size_type j = 0; j < str.length(); ++j)
 			{
 				std::cout << static_cast<char>(std::toupper(static_cast<unsigned char>(str[j])));
 			}

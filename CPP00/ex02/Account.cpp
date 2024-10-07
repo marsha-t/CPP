@@ -41,7 +41,7 @@ Account::Account(int initial_deposit)
 	this->_amount = initial_deposit;
 	this->_nbDeposits = 0;
 	this->_nbWithdrawals = 0;
-	Account::_nbAccounts++;
+	++Account::_nbAccounts;
 	Account::_totalAmount += this->_amount;
 	this->_displayTimestamp();
 	std::cout << "index:" << this->_accountIndex << ";amount:" << this->_amount << ";created" << std::endl;
@@ -60,9 +60,9 @@ void	Account::makeDeposit(int deposit)
 	this->_displayTimestamp();
 	std::cout << "index:" << this->_accountIndex << ";p_amount:" << this->_amount << ";deposit:" << deposit << std::flush;
 	this->_amount += deposit;
-	this->_nbDeposits++;
+	++this->_nbDeposits;
 	_totalAmount += deposit;
-	_totalNbDeposits++;
+	++_totalNbDeposits;
 	std::cout << ";amount:" << this->_amount << ";nb_deposits:" << this->_nbDeposits << std::endl;
 	return ;
 }
@@ -79,9 +79,9 @@ bool	Account::makeWithdrawal(int withdrawal)
 	else
 	{
 		this->_amount -= withdrawal;
-		this->_nbWithdrawals++;
+		++this->_nbWithdrawals;
 		_totalAmount -= withdrawal;
-		_totalNbWithdrawals++;
+		++_totalNbWithdrawals;
 		std::cout << withdrawal << ";amount:" << this->_amount << ";nb_withdrawals:" << this->_nbWithdrawals << std::endl;
 		return (true);
 	}

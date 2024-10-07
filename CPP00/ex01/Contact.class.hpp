@@ -7,19 +7,19 @@ class Contact
 {
 	public:
 		Contact(void);
-		Contact(std::string *input);
+		Contact(std::string (&input)[5]);
 		~Contact(void);
-		const std::string&	get_first_name(void) const { return (this->first_name); }
-		const std::string&	get_last_name(void) const { return (this->last_name); }
-		const std::string&	get_nickname(void) const { return (this->nickname); }
-		const std::string&	get_phone_num(void) const { return (this->phone_num); }
-		const std::string&	get_darkest_secret(void) const { return (this->darkest_secret); }
+		const std::string&	get_first_name(void) const { return (this->_first_name); }
+		const std::string&	get_last_name(void) const { return (this->_last_name); }
+		const std::string&	get_nickname(void) const { return (this->_nickname); }
 		void	display(void) const;
 	private:
-		std::string	first_name;
-		std::string	last_name;
-		std::string	nickname;
-		std::string	phone_num;
-		std::string	darkest_secret;
+		std::string	_first_name;
+		std::string	_last_name;
+		std::string	_nickname;
+		std::string	_phone_num;
+		std::string	_darkest_secret;
+		const std::string&	_get_phone_num(void) const { return (this->_phone_num); }
+		const std::string&	_get_darkest_secret(void) const { return (this->_darkest_secret); }
 };
 #endif

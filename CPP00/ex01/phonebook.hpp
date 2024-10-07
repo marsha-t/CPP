@@ -6,6 +6,7 @@
 # include <iomanip>
 # include <limits>
 # include <cstdlib>
+# include <csignal>
 # include "Contact.class.hpp"
 # include "PhoneBook.class.hpp"
 
