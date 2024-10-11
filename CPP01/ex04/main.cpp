@@ -15,7 +15,7 @@ int	main(int argc, char **argv)
 	}
 	
 	std::string input[3]; 
-	for (int i = 0; i < 3; i++)
+	for (int i = 0; i < 3; ++i)
 	{
 		input[i] = argv[i + 1];
 	}

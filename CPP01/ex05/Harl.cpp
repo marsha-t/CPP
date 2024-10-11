@@ -43,7 +43,7 @@ void	Harl::complain(std::string level)
 
 	int	i = 0;
 	while (i < 4 && level != level_list[i])
-		i++;
+		++i;
 	if (i == 4)
 		std::cout << "Insignificant message" << std::endl;
 	else
