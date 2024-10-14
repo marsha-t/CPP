@@ -53,17 +53,16 @@ void	Harl::complain(std::string level)
 		case 1:
 			(this->*func_list[1])();
 			// fall through
-
 		case 2:
 			(this->*func_list[2])();
 			// fall through
-
 		case 3:
 			(this->*func_list[3])();
 			break ;
-
 		case 4:
 			std::cout << "Insignificant message" << std::endl;
+		default:
+			;
 	}
 	return ;
 }
