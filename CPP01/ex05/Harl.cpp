@@ -13,23 +13,26 @@ Harl::~Harl(void)
 	return ;
 }
 
-void	Harl::debug(void)
+void	Harl::debug(void) 
 {
 	std::cout << "Debug message" << std::endl;
 	return ;
 }
-void	Harl::info(void)
+
+void	Harl::info(void) 
 {
 	std::cout << "Info message" << std::endl;
 	return ;
 }
-void	Harl::warning(void)
+
+void	Harl::warning(void) 
 {
 	
 	std::cout << "Warning message" << std::endl;
 	return ;
 }
-void	Harl::error(void)
+
+void	Harl::error(void) 
 {
 	std::cout << "Error message" << std::endl;
 	return ;
