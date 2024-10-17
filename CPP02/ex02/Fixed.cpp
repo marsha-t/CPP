@@ -174,3 +174,23 @@ std::ostream &operator<<(std::ostream &out, Fixed const &obj)
 	out << obj.toFloat() << std::flush;
 	return (out);
 }
+
+Fixed &Fixed::min(Fixed &obj1, Fixed &obj2)
+{
+	return ((obj1._value <= obj2._value) ? obj1 : obj2);
+}
+const Fixed &Fixed::min(Fixed const &obj1, Fixed const &obj2)
+{
+	return ((obj1._value <= obj2._value) ? obj1 : obj2);
+}
+
+Fixed &Fixed::max(Fixed &obj1, Fixed &obj2)
+{
+	return ((obj1._value >= obj2._value) ? obj1 : obj2);
+}
+
+const Fixed &Fixed::max(Fixed const &obj1, Fixed const &obj2)
+{
+	return ((obj1._value >= obj2._value) ? obj1 : obj2);
+}
+

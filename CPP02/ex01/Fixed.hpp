@@ -17,11 +17,12 @@ class	Fixed
 		void	setRawBits(int const raw) { this->_value = raw; return ;};
 		float	toFloat(void) const { return (static_cast<float>(this->_value) / (1 << this->_frac)); };
 		int		toInt(void) const { return (this->_value >> _frac); };
+		friend std::ostream &operator<<(std::ostream &out, Fixed const &obj);
+
 	private:	
 		int	_value;
 		static const int _frac;
 };
 
-std::ostream &operator<<(std::ostream &out, Fixed const &obj);
 
 #endif
