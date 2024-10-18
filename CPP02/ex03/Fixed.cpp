@@ -5,31 +5,31 @@ const int Fixed::_frac = 8;
 
 Fixed::Fixed(void): _value(0)
 {
-	std::cout << "Default constructor called" << std::endl;
+	// std::cout << "Default constructor called" << std::endl;
 	return ;
 }
 
 Fixed::Fixed(const int value):_value(value << this->_frac)
 {
-	std::cout << "Int constructor called" << std::endl;
+	// std::cout << "Int constructor called" << std::endl;
 	return ;
 }
 
 Fixed::Fixed(const float value): _value(roundf(value * (1 << this->_frac)))
 {
-	std::cout << "Float constructor called" << std::endl;
+	// std::cout << "Float constructor called" << std::endl;
 	return ;
 }
 
 Fixed::Fixed(const Fixed &obj): _value(obj._value)
 {
-	std::cout << "Copy constructor called" << std::endl;
+	// std::cout << "Copy constructor called" << std::endl;
 	return ;
 }
 
 Fixed &Fixed::operator=(const Fixed &obj)
 {
-	std::cout << "Copy assignment operator called" << std::endl;
+	// std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &obj)
 		this->_value = obj._value;
 	return (*this);
@@ -37,7 +37,7 @@ Fixed &Fixed::operator=(const Fixed &obj)
 
 Fixed::~Fixed(void)
 {
-	std::cout << "Destructor called" << std::endl;
+	// std::cout << "Destructor called" << std::endl;
 	return ;
 }
 
@@ -117,7 +117,6 @@ Fixed	&Fixed::operator*=(Fixed const &obj)
 	float	result = this->toFloat() * obj.toFloat();
 	this->_value = roundf(result * (1 << this->_frac));
 	return (*this);
-	std::cout << std::boolalpha << "neg: " << neg << std::endl;	
 }
 
 Fixed	Fixed::operator*(Fixed const &obj) const

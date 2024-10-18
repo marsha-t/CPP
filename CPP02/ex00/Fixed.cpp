@@ -9,7 +9,7 @@ Fixed::Fixed(void): _value(0)
 	return ;
 }
 
-Fixed::Fixed(const Fixed& obj): _value(obj._value)
+Fixed::Fixed(const Fixed &obj): _value(obj._value)
 {
 	std::cout << "Copy constructor called" << std::endl;
 	return ;

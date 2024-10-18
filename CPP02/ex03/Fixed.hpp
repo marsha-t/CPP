@@ -55,6 +55,4 @@ class	Fixed
 		static const int _frac;
 };
 
-
-
 #endif

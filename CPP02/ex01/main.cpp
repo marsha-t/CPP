@@ -2,7 +2,8 @@
 #include <cstdlib>
 #include <iostream>
 
-int main( void ) {
+int main(void) 
+{
 	std::cout << "a: " << std::flush;
 	Fixed a;
 	std::cout << "b: " << std::flush;

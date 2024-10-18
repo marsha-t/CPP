@@ -21,7 +21,7 @@ Fixed::Fixed(const float value): _value(roundf(value * (1 << this->_frac)))
 	return ;
 }
 
-Fixed::Fixed(const Fixed& obj): _value(obj._value)
+Fixed::Fixed(const Fixed &obj): _value(obj._value)
 {
 	std::cout << "Copy constructor called" << std::endl;
 	return ;
@@ -51,12 +51,12 @@ void	Fixed::setRawBits(int const raw)
 		this->_value = raw; return ;
 };
 
-float	Fixed::toFloat(void) const // inline?
+float	Fixed::toFloat(void) const
 {
 	return (static_cast<float>(this->_value) / (1 << this->_frac));
 }
 
-int		Fixed::toInt(void) const // WIP: inline?
+int		Fixed::toInt(void) const
 {
 	return (this->_value >> _frac);
 }

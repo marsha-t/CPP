@@ -2,7 +2,7 @@
 #include <cstdlib>
 #include <iostream>
 
-int main()
+int main(void)
 {
 	Fixed a;
 	Fixed b( a );
