@@ -10,8 +10,8 @@ class	Fixed
 		Fixed(const Fixed& obj);
 		Fixed &operator=(const Fixed& obj);
 		~Fixed(void);
-		int		getRawBits(void) const { return (this->_value); };
-		void	setRawBits(int const raw) { this->_value = raw; return ;};
+		int		getRawBits(void) const; 
+		void	setRawBits(int const raw);
 	private:	
 		int	_value;
 		static const int _frac;

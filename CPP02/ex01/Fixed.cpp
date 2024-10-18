@@ -41,26 +41,25 @@ Fixed::~Fixed(void)
 	return ;
 }
 
-// int	Fixed::getRawBits(void) const 
-// { 
-// 		return (this->_value); 
-// };
+int	Fixed::getRawBits(void) const 
+{ 
+		return (this->_value); 
+};
 
-// void	Fixed::setRawBits(int const raw) 
-// { 
-// 		this->_value = raw; return ;
-// };
+void	Fixed::setRawBits(int const raw) 
+{ 
+		this->_value = raw; return ;
+};
 
+float	Fixed::toFloat(void) const // inline?
+{
+	return (static_cast<float>(this->_value) / (1 << this->_frac));
+}
 
-// float	Fixed::toFloat(void) const // inline?
-// {
-// 	return (static_cast<float>(this->_value) / (1 << this->_frac));
-// }
-
-// int		Fixed::toInt(void) const // WIP: inline?
-// {
-// 	return (this->_value >> _frac);
-// }
+int		Fixed::toInt(void) const // WIP: inline?
+{
+	return (this->_value >> _frac);
+}
 
 std::ostream &operator<<(std::ostream &out, Fixed const &obj)
 {

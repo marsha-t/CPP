@@ -16,10 +16,10 @@ class	Fixed
 		~Fixed(void);
 
 		// Helper functions
-		int		getRawBits(void) const { return (this->_value); };
-		void	setRawBits(int const raw) { this->_value = raw; return ;};
-		float	toFloat(void) const { return (static_cast<float>(this->_value) / (1 << this->_frac)); };
-		int		toInt(void) const { return (this->_value >> _frac); };
+		int		getRawBits(void) const;
+		void	setRawBits(int const raw);
+		float	toFloat(void) const;
+		int		toInt(void) const;
 
 		// Operators 
 		bool	operator>(Fixed const &obj) const;

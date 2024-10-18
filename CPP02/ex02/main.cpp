@@ -24,7 +24,6 @@ int main( void )
 	std::cout << "2: " << c-- << std::endl;
 	std::cout << "1.99609375: " << c << std::endl;
 	std::cout << "1.9921875: " << --c << std::endl;
-	std::cout << "1.9921875: " << --c << std::endl;
 	std::cout << "1.9921875: " << c << std::endl;
 	std::cout << "1.9921875: " << Fixed::min(c, c) << std::endl;
 	try

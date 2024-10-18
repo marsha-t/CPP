@@ -23,15 +23,15 @@ Fixed &Fixed::operator=(const Fixed &obj)
 	return (*this);
 }
 
-// int	Fixed::getRawBits(void) const 
-// { 
-// 		return (this->_value); 
-// };
+int	Fixed::getRawBits(void) const 
+{ 
+		return (this->_value); 
+};
 
-// void	Fixed::setRawBits(int const raw) 
-// { 
-// 		this->_value = raw; return ;
-// };
+void	Fixed::setRawBits(int const raw) 
+{ 
+		this->_value = raw; return ;
+};
 
 Fixed::~Fixed(void)
 {
