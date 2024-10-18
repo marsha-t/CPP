@@ -130,7 +130,7 @@ Fixed	Fixed::operator*(Fixed const &obj) const
 Fixed	&Fixed::operator/=(Fixed const &obj) // not required
 {
 	if (obj._value == 0)
-		throw::std::runtime_error("Error: Division by zero"); // from chatgpt
+		throw::std::runtime_error("Fixed point arithmetic: Division by zero");
 	float	result = this->toFloat() / obj.toFloat();
 	this->_value = roundf(result * (1 << this->_frac)); // check whether this needs static cast to int
 	return (*this);
