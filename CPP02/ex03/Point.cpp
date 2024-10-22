@@ -26,11 +26,11 @@ Point &Point::operator=(const Point &obj) // HOW?
 	{
 		std::cout << "Casting away const to reassign" << std::endl;
 		// static_cast<Fixed>(this->x) = obj.getX();
-		// (Fixed)(this->x) = obj.getX();
-		std::cout << "inside:" << this->x << obj.getX() << std::endl;
+		(Fixed)(this->x) = obj.getX();
+		std::cout << "inside:" << this->x << ", " << obj.getX() << std::endl;
 		// static_cast<Fixed>(this->y) = obj.getY();
-		// (Fixed)(this->y) = obj.getY();
-		std::cout << "inside:" << this->y << obj.getY() << std::endl;
+		(Fixed)(this->y) = obj.getY();
+		std::cout << "inside:" << this->y << ", " << obj.getY() << std::endl;
 	}
 	return (*this);
 }

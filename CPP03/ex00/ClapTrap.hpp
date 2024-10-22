@@ -16,6 +16,9 @@ class ClapTrap
 		ClapTrap	&operator=(const ClapTrap &obj);
 		~ClapTrap(void);
 
+		// Getters
+		void	getDetails(void) const;
+		
 		// Other functions
 		void	attack(const std::string &target);
 		void	takeDamage(unsigned int amount);

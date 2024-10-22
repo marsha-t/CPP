@@ -19,10 +19,18 @@ ClapTrap::ClapTrap(const ClapTrap &obj): _name(obj._name), _hit_pts(obj._hit_pts
 	return ;
 }
 
-// ClapTrap	&ClapTrap::operator=(const ClapTrap &obj) // WIP
-// {
-// 
-// }
+ClapTrap	&ClapTrap::operator=(const ClapTrap &obj)
+{
+	std::cout << "Copy assignment operator called " << std::endl;
+	if (this != &obj)
+	{
+		_name = obj._name;
+		_hit_pts = obj._hit_pts;
+		_energy_pts = obj._energy_pts;
+		_attack_damage = obj._attack_damage;
+	}
+	return (*this);
+}
 
 ClapTrap::ClapTrap(void)
 {
@@ -46,18 +54,22 @@ void	ClapTrap::attack(const std::string &target)
 
 void	ClapTrap::takeDamage(unsigned int amount)
 {
-	if (_hit_pts <= amount)
+	if (this->_hit_pts <= amount)
 	{
 		std::cout << "ClapTrap " << this->_name << " is dead" << std::endl;
 	}
 	else
 	{
-		_hit_pts -= amount;
+		this->_hit_pts -= amount;
 		std::cout << "ClapTrap " << this->_name << " takes" << amount << "damage!" << std::endl;
 		
 	}
 	return ;
 }
 
-void	ClapTrap::beRepaired(unsigned int amount);
-
+void	ClapTrap::beRepaired(unsigned int amount)
+{
+	this->_hit_pts += amount;
+	std::cout << "ClapTrap " << this->_name << " heals by " << amount << std::endl;
+	return ;
+}
