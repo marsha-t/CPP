@@ -47,12 +47,11 @@ class	Fixed
 		static Fixed &max(Fixed &obj1, Fixed &obj2);
 		static const Fixed &max(Fixed const &obj1, Fixed const &obj2);
 
-		// Friends
-		friend std::ostream &operator<<(std::ostream &out, Fixed const &obj);
-
 	private:	
 		int	_value;
 		static const int _frac;
 };
+
+std::ostream &operator<<(std::ostream &out, Fixed const &obj);
 
 #endif
