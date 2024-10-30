@@ -1,5 +1,5 @@
 #include "Point.hpp"
-
+#include <iostream>
 /**
  * @brief Checks whether p3 is left/right/collinear with p1-p2 edge
  * 
@@ -10,7 +10,7 @@
  */
 static float	triangleOrientation(Point const p1, Point const p2, Point const p3)
 {
-	return (p1.getX() - p3.getX()).toFloat() * (p2.getY() - p3.getY()).toFloat() - (p2.getX() - p3.getX()).toFloat() * (p1.getY() - p3.getY()).toFloat();
+	return ((p1.getX() - p3.getX()) * (p2.getY() - p3.getY()) - (p2.getX() - p3.getX()) * (p1.getY() - p3.getY())).toFloat();
 }
 
 /**

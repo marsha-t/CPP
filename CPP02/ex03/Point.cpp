@@ -19,18 +19,14 @@ Point::Point(const Point &obj): x(obj.x), y(obj.y)
 	return ;
 }
 
-Point &Point::operator=(const Point &obj) // HOW?
+Point &Point::operator=(const Point &obj)
 {
 	std::cout << "Point copy assignment operator called" << std::endl;
 	if (this != &obj)
 	{
-		std::cout << "Casting away const to reassign" << std::endl;
-		// static_cast<Fixed>(this->x) = obj.getX();
-		(Fixed)(this->x) = obj.getX();
-		std::cout << "inside:" << this->x << ", " << obj.getX() << std::endl;
-		// static_cast<Fixed>(this->y) = obj.getY();
-		(Fixed)(this->y) = obj.getY();
-		std::cout << "inside:" << this->y << ", " << obj.getY() << std::endl;
+		std::cout << "Casting away const to reassign?" << std::endl;
+		static_cast<Fixed>(this->x) = obj.getX();
+		static_cast<Fixed>(this->y) = obj.getY();
 	}
 	return (*this);
 }

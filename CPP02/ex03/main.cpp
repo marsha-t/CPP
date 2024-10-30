@@ -16,10 +16,5 @@ int main(void)
 	std::cout << std::boolalpha << "Outside point is found to be inside: " << bsp(a, b, c, outside) << std::endl;
 	std::cout << std::boolalpha << "Inside point is found to be inside: " << bsp(a, b, c, inside) << std::endl;
 	std::cout << std::boolalpha << "Collinear point is found to be inside: " << bsp(a, b, c, collinear) << std::endl;
-
-	Point	temp;
-	std::cout << temp.getX() << ", " << temp.getY() << std::endl;
-	temp = outside;
-	std::cout << temp.getX() << ", " << temp.getY() << std::endl;
 	return (EXIT_SUCCESS);
 }

@@ -43,12 +43,13 @@ Fixed::~Fixed(void)
 
 int	Fixed::getRawBits(void) const 
 { 
-		return (this->_value); 
+	return (this->_value); 
 };
 
 void	Fixed::setRawBits(int const raw) 
 { 
-		this->_value = raw; return ;
+	this->_value = raw; 
+	return ;
 };
 
 float	Fixed::toFloat(void) const
@@ -58,7 +59,7 @@ float	Fixed::toFloat(void) const
 
 int		Fixed::toInt(void) const
 {
-	return (this->_value >> _frac);
+	return (this->_value >>this-> _frac);
 }
 
 bool	Fixed::operator>(Fixed const &obj) const
@@ -74,6 +75,11 @@ bool	Fixed::operator<(Fixed const &obj) const
 bool	Fixed::operator<=(Fixed const &obj) const
 {
 	return (!(*this > obj));
+}
+
+bool	Fixed::operator>=(Fixed const &obj) const
+{
+	return (!(*this < obj));
 }
 
 bool	Fixed::operator==(Fixed const &obj) const
@@ -117,7 +123,6 @@ Fixed	&Fixed::operator*=(Fixed const &obj)
 	float	result = this->toFloat() * obj.toFloat();
 	this->_value = roundf(result * (1 << this->_frac));
 	return (*this);
-	std::cout << std::boolalpha << "neg: " << neg << std::endl;	
 }
 
 Fixed	Fixed::operator*(Fixed const &obj) const

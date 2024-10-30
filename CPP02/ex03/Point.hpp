@@ -12,6 +12,8 @@ class Point
 		Point(const Point &obj);
 		Point &operator=(const Point &obj);
 		~Point(void);
+
+		// Getter
 		const Fixed	getX(void) const;
 		const Fixed	getY(void) const;
 	private:

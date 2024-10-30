@@ -16,6 +16,13 @@ int main(void)
 
 	std::cout << "------Own tests------" << std::endl;
 	Fixed c(2);
+	std::cout << std::boolalpha << "a < b: " << (a < b) << std::endl;
+	std::cout << std::boolalpha << "a <= b: " << (a <= b) << std::endl;
+	std::cout << std::boolalpha << "a > b: " << (a > b) << std::endl;
+	std::cout << std::boolalpha << "a >= b: " << (a >= b) << std::endl;
+	std::cout << std::boolalpha << "c == c: " << (c == c) << std::endl;
+	std::cout << std::boolalpha << "c != c: " << (c != c) << std::endl;
+
 	std::cout << "2: " << c << std::endl;
 	std::cout << "4: " << c + c << std::endl;
 	std::cout << "0: " << c - c << std::endl;
