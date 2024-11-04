@@ -5,7 +5,7 @@ CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
 all: $(NAME)
 
-$(NAME):
+$(NAME): ClapTrap.hpp
 	c++ $(FILES) $(CPPFLAGS) -o $(NAME)
 
 clean:

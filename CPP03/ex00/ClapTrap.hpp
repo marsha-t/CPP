@@ -1,10 +1,12 @@
 #ifndef CLAPTRAP_HPP
 #define CLAPTRAP_HPP
 
+#include <string>
+
 class ClapTrap
 {
 	private:
-		std::string	_name;
+		std::string		_name;
 		unsigned int	_hit_pts;
 		unsigned int	_energy_pts;
 		unsigned int	_attack_damage;
@@ -15,9 +17,6 @@ class ClapTrap
 		ClapTrap(const ClapTrap &obj);
 		ClapTrap	&operator=(const ClapTrap &obj);
 		~ClapTrap(void);
-
-		// Getters
-		void	getDetails(void) const;
 		
 		// Other functions
 		void	attack(const std::string &target);

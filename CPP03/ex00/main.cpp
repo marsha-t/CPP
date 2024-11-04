@@ -3,10 +3,12 @@
 
 int	main(void)
 {
-	ClapTrap a("CT A");
-	ClapTrap b("CT B");
+	ClapTrap a("A");
+	ClapTrap b("B");
 
-	A = B;
-	std::
+	// A = B;
+	a.attack("something");
+	b.takeDamage(10);
+	b.beRepaired(1);
 	return (EXIT_SUCCESS);
 }
