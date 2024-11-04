@@ -1,11 +1,11 @@
-NAME = ex00
+NAME = ex01
 
-FILES = main.cpp ClapTrap.cpp
+FILES = main.cpp ClapTrap.cpp ScavTrap.cpp
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
 all: $(NAME)
 
-$(NAME): $(FILES) ClapTrap.hpp
+$(NAME): ClapTrap.hpp ScavTrap.hpp
 	c++ $(FILES) $(CPPFLAGS) -o $(NAME)
 
 clean:

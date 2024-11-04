@@ -1,4 +1,5 @@
 #include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 #include <cstdlib>
 
 int	main(void)
@@ -9,5 +10,14 @@ int	main(void)
 	a.beRepaired(1);
 	a.attack("a zombie");
 	a.takeDamage(2);
+
+	ScavTrap b("B");
+	b.guardGate();
+	b.guardGate();
+	b.attack("something");
+	b.takeDamage(100);
+	b.beRepaired(1);
+	b.attack("a zombie");
+	b.takeDamage(2);
 	return (EXIT_SUCCESS);
 }
