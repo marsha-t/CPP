@@ -5,9 +5,11 @@ int	main(void)
 {
 	ClapTrap a("A");
 	a.attack("something");
-	a.takeDamage(10);
 	a.beRepaired(1);
+	a.takeDamage(1);
+	a.takeDamage(11);
 	a.attack("a zombie");
+	a.beRepaired(1);
 	a.takeDamage(2);
 	return (EXIT_SUCCESS);
 }

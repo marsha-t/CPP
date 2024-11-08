@@ -49,35 +49,6 @@ void	ScavTrap::attack(const std::string &target)
 	return ;
 }
 
-void	ScavTrap::takeDamage(unsigned int amount)
-{
-	if (this->_hit_pts == 0)
-		std::cout << "ScavTrap " << this->_name << " is already dead and cannot take more damage" << std::endl;
-	else if (this->_hit_pts <= amount)
-	{
-		this->_hit_pts = 0;
-		std::cout << "ScavTrap " << this->_name << " is dead" << std::endl;
-	}
-	else
-	{
-		this->_hit_pts -= amount;
-		std::cout << "ScavTrap " << this->_name << " takes " << amount << " damage!" << std::endl;
-	}
-	return ;
-}
-
-void	ScavTrap::beRepaired(unsigned int amount)
-{
-	if (this->_hit_pts == 0)
-	{
-		std::cout << "ScavTrap " << this->_name << " is already dead and cannot heal" << std::endl;
-		return ;
-	}
-	this->_hit_pts += amount;
-	std::cout << "ScavTrap " << this->_name << " heals by " << amount << " point" << std::endl;
-	return ;
-}
-
 void	ScavTrap::guardGate(void)
 {
 	if (this->_hit_pts == 0)
