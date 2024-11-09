@@ -1,7 +1,7 @@
 #include "ScavTrap.hpp"
 #include <iostream>
 
-ScavTrap::ScavTrap(void): ClapTrap("untitled", 100, 50, 20), _isGateKeeper(false)
+ScavTrap::ScavTrap(void): ClapTrap("Untitled", 100, 50, 20), _isGateKeeper(false)
 {
 	std::cout << "ScavTrap default constructor called for " << this->_name << std::endl;
 }

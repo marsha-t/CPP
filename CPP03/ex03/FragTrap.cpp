@@ -1,7 +1,7 @@
 #include "FragTrap.hpp"
 #include <iostream>
 
-FragTrap::FragTrap(void): ClapTrap("untitled", 100, 100, 30)
+FragTrap::FragTrap(void): ClapTrap("Untitled", 100, 100, 30)
 {
 	std::cout << "FragTrap default constructor called for " << this->_name << std::endl;
 }
@@ -15,7 +15,6 @@ FragTrap::FragTrap(const FragTrap &obj): ClapTrap(obj)
 {
 	std::cout << "FragTrap copy constructor called for " << this->_name << std::endl;
 }
-
 
 FragTrap	&FragTrap::operator=(const FragTrap &obj)
 {

@@ -4,7 +4,7 @@
 
 int	main(void)
 {
-	std::cout << "----- Allocating on stack -----" << std::endl;
+	std::cout << std::endl << "----- Allocating on stack -----" << std::endl;
 	ClapTrap	aStack("aStack");
 	aStack.attack("something");
 	aStack.beRepaired(1);
@@ -14,7 +14,7 @@ int	main(void)
 	aStack.beRepaired(1);
 	aStack.takeDamage(2);
 
-	std::cout << "----- Allocating on heap -----" << std::endl;
+	std::cout << std::endl << "----- Allocating on heap -----" << std::endl;
 	ClapTrap	*aHeapPtr = new ClapTrap("aHeap");
 	aHeapPtr->attack("something");
 	aHeapPtr->beRepaired(1);
@@ -24,5 +24,7 @@ int	main(void)
 	aHeapPtr->beRepaired(1);
 	aHeapPtr->takeDamage(2);
 	delete aHeapPtr;
+	std::cout << std::endl << "--------------------------" << std::endl;
+
 	return (EXIT_SUCCESS);
 }

@@ -1,75 +1,113 @@
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
 #include "FragTrap.hpp"
+#include "DiamondTrap.hpp"
 #include <cstdlib>
 #include <iostream>
 
 int	main(void)
 {
-	std::cout << "----- Allocating on stack -----" << std::endl;
+	std::cout << std::endl << "----- Allocating on stack -----" << std::endl;
 	// ClapTrap	aStack("aStack");
 	// aStack.attack("something");
 	// aStack.beRepaired(1);
 	// aStack.takeDamage(1);
-	// std::cout << std::endl;
+	// std::cout << std::endl << "--------------------------" << std::endl;
 
 	// ScavTrap	bStack("bStack");
-	// bStack.guardGate();
-	// bStack.guardGate();
 	// bStack.attack("something");
 	// bStack.beRepaired(1);
 	// bStack.takeDamage(10);
-	// std::cout << std::endl;
+	// std::cout << std::endl << "--------------------------" << std::endl;
 	
-	FragTrap	cStack("cStack");
-	cStack.highFivesGuys();
-	cStack.attack("something");
-	cStack.takeDamage(100);
-	cStack.beRepaired(1);
-	cStack.attack("a zombie");
-	cStack.takeDamage(2);
-	cStack.highFivesGuys();
-	
-	std::cout << "----- Allocating on heap -----" << std::endl;
+	// FragTrap	cStack("cStack");
+	// cStack.highFivesGuys();
+	// cStack.attack("something");
+	// cStack.takeDamage(100);
+	// cStack.beRepaired(1);
+	// cStack.attack("a zombie");
+	// cStack.takeDamage(2);
+	// cStack.highFivesGuys();
+	// std::cout << std::endl << "--------------------------" << std::endl;
+
+	DiamondTrap dStack("dStack");
+	dStack.whoAmI();
+	dStack.attack("something");
+	dStack.beRepaired(1);
+	dStack.takeDamage(10);
+	dStack.highFivesGuys();
+
+	std::cout << std::endl <<  "----- Allocating on heap -----" << std::endl;
 	// ClapTrap	*aHeapPtr = new ClapTrap("aHeap");
 	// aHeapPtr->attack("something");
 	// aHeapPtr->beRepaired(1);
 	// aHeapPtr->takeDamage(1);
 	// delete aHeapPtr;
-	// std::cout << std::endl;
+	// std::cout << std::endl << "--------------------------" << std::endl;
 
 	// ScavTrap	*bHeapPtr = new ScavTrap("bHeap");
-	// bHeapPtr->guardGate();
-	// bHeapPtr->guardGate();
 	// bHeapPtr->attack("something");
 	// bHeapPtr->beRepaired(1);
 	// bHeapPtr->takeDamage(10);
 	// delete bHeapPtr;
-	// std::cout << std::endl;
+	// std::cout << std::endl << "--------------------------" << std::endl;
 
 	// ClapTrap	*bHeapBasePtr = new ScavTrap("bHeapBase");
 	// bHeapBasePtr->attack("something");
 	// bHeapBasePtr->beRepaired(1);
 	// bHeapBasePtr->takeDamage(1);
 	// delete bHeapBasePtr;
-	// std::cout << std::endl;
+	// std::cout << std::endl << "--------------------------" << std::endl;
 
-	FragTrap	*cHeapPtr = new FragTrap("cHeap");
-	cHeapPtr->highFivesGuys();
-	cHeapPtr->attack("something");
-	cHeapPtr->takeDamage(100);
-	cHeapPtr->beRepaired(1);
-	cHeapPtr->attack("a zombie");
-	cHeapPtr->takeDamage(2);
-	cHeapPtr->highFivesGuys();
-	delete cHeapPtr;
-	std::cout << std::endl;
+	// FragTrap	*cHeapPtr = new FragTrap("cHeap");
+	// cHeapPtr->highFivesGuys();
+	// cHeapPtr->attack("something");
+	// cHeapPtr->takeDamage(100);
+	// cHeapPtr->beRepaired(1);
+	// cHeapPtr->attack("a zombie");
+	// cHeapPtr->takeDamage(2);
+	// cHeapPtr->highFivesGuys();
+	// delete cHeapPtr;
+	// std::cout << std::endl << "--------------------------" << std::endl;
 
-	ClapTrap	*cHeapBasePtr = new FragTrap("cHeapBase");
-	cHeapBasePtr->attack("something");
-	cHeapBasePtr->beRepaired(1);
-	cHeapBasePtr->takeDamage(1);
-	delete cHeapBasePtr;	
+	// ClapTrap	*cHeapBasePtr = new FragTrap("cHeapBase");
+	// cHeapBasePtr->attack("something");
+	// cHeapBasePtr->beRepaired(1);
+	// cHeapBasePtr->takeDamage(1);
+	// delete cHeapBasePtr;	
+	// std::cout << std::endl << "--------------------------" << std::endl;
+
+	DiamondTrap	*dHeapPtr = new DiamondTrap("dHeap");
+	dHeapPtr->whoAmI();
+	dHeapPtr->attack("something");
+	dHeapPtr->beRepaired(1);
+	dHeapPtr->takeDamage(10);
+	dHeapPtr->highFivesGuys();
+	delete dHeapPtr;
+	std::cout << std::endl << "--------------------------" << std::endl;
 	
+	ScavTrap	*dHeapLeftPtr = new DiamondTrap("dHeapLeft");
+	dHeapLeftPtr->attack("something");
+	dHeapLeftPtr->beRepaired(1);
+	dHeapLeftPtr->takeDamage(10);
+	dHeapLeftPtr->guardGate();
+	delete dHeapLeftPtr;
+	std::cout << std::endl << "--------------------------" << std::endl;
+
+	FragTrap	*dHeapRightPtr = new DiamondTrap("dHeapRight");
+	dHeapRightPtr->attack("something");
+	dHeapRightPtr->beRepaired(1);
+	dHeapRightPtr->takeDamage(10);
+	dHeapRightPtr->highFivesGuys();
+	delete dHeapRightPtr;
+	std::cout << std::endl << "--------------------------" << std::endl;
+
+	ClapTrap	*dHeapBasePtr = new DiamondTrap("dHeapBase");
+	dHeapBasePtr->attack("something");
+	dHeapBasePtr->beRepaired(1);
+	dHeapBasePtr->takeDamage(10);
+	delete dHeapBasePtr;
+	std::cout << std::endl << "--------------------------" << std::endl;
+
 	return (EXIT_SUCCESS);
 }
