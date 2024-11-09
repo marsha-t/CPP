@@ -5,21 +5,21 @@
 #include "FragTrap.hpp"
 #include <string>
 
-class DiamondTrap: public ScavTrap
+class DiamondTrap: public ScavTrap, public FragTrap
 {
 	public:
 		// OCN
-		FragTrap(void);
-		FragTrap(std::string name);
-		FragTrap(const FragTrap &obj);
-		FragTrap	&operator=(const FragTrap &obj);
-		~FragTrap(void);
+		DiamondTrap(void);
+		DiamondTrap(std::string name);
+		DiamondTrap(const FragTrap &obj);
+		DiamondTrap	&operator=(const DiamondTrap &obj);
+		~DiamondTrap(void);
 		
 		// Other functions
-		void	attack(const std::string &target);
-		void	takeDamage(unsigned int amount);
-		void	beRepaired(unsigned int amount);
-		void	highFivesGuys(void);
+		void	whoAmI(void);
+	private: 
+		std::string		_name;
+		std::string		_ctName;
 };
 
 #endif

@@ -3,17 +3,17 @@
 
 ScavTrap::ScavTrap(void): ClapTrap("untitled", 100, 50, 20), _isGateKeeper(false)
 {
-	std::cout << "ScavTrap default constructor called" << std::endl;
+	std::cout << "ScavTrap default constructor called for " << this->_name << std::endl;
 }
 
 ScavTrap::ScavTrap(std::string name): ClapTrap(name, 100, 50, 20), _isGateKeeper(false)
 {
-	std::cout << "ScavTrap string constructor called" << std::endl;
+	std::cout << "ScavTrap string constructor called for " << this->_name << std::endl;
 }
 
 ScavTrap::ScavTrap(const ScavTrap &obj): ClapTrap(obj), _isGateKeeper(obj._isGateKeeper)
 {
-	std::cout << "ScavTrap copy constructor called" << std::endl;
+	std::cout << "ScavTrap copy constructor called for " << this->_name << std::endl;
 }
 
 ScavTrap	&ScavTrap::operator=(const ScavTrap &obj)
@@ -32,7 +32,7 @@ ScavTrap	&ScavTrap::operator=(const ScavTrap &obj)
 
 ScavTrap::~ScavTrap(void)
 {
-	std::cout << "ScavTrap destructor called" << std::endl;
+	std::cout << "ScavTrap destructor called for " << this->_name << std::endl;
 }
 
 void	ScavTrap::attack(const std::string &target)
@@ -46,35 +46,6 @@ void	ScavTrap::attack(const std::string &target)
 		std::cout << "ScavTrap " << this->_name << " attacks " + target + ", causing " << this->_attack_damage << " points of damage!" << std::endl;
 		--this->_energy_pts;
 	}
-	return ;
-}
-
-void	ScavTrap::takeDamage(unsigned int amount)
-{
-	if (this->_hit_pts == 0)
-		std::cout << "ScavTrap " << this->_name << " is already dead and cannot take more damage" << std::endl;
-	else if (this->_hit_pts <= amount)
-	{
-		this->_hit_pts = 0;
-		std::cout << "ScavTrap " << this->_name << " is dead" << std::endl;
-	}
-	else
-	{
-		this->_hit_pts -= amount;
-		std::cout << "ScavTrap " << this->_name << " takes " << amount << " damage!" << std::endl;
-	}
-	return ;
-}
-
-void	ScavTrap::beRepaired(unsigned int amount)
-{
-	if (this->_hit_pts == 0)
-	{
-		std::cout << "ScavTrap " << this->_name << " is already dead and cannot heal" << std::endl;
-		return ;
-	}
-	this->_hit_pts += amount;
-	std::cout << "ScavTrap " << this->_name << " heals by " << amount << " point" << std::endl;
 	return ;
 }
 

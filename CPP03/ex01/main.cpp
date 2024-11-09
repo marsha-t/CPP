@@ -6,54 +6,42 @@
 int	main(void)
 {
 	std::cout << "----- Allocating on stack -----" << std::endl;
-	// ClapTrap a("A");
-	// a.attack("something");
-	// a.takeDamage(10);
-	// a.beRepaired(1);
-	// a.attack("a zombie");
-	// a.takeDamage(2);
+	// ClapTrap	aStack("aStack");
+	// aStack.attack("something");
+	// aStack.beRepaired(1);
+	// aStack.takeDamage(1);
+	// std::cout << std::endl;
 
-	// ScavTrap b("B");
-	// b.guardGate();
-	// b.guardGate();
-	// b.attack("something");
-	// b.beRepaired(1);
-	// b.takeDamage(10);
-	// b.beRepaired(1);
-	// b.attack("a zombie");
-	// b.takeDamage(2);
-	
+	ScavTrap	bStack("bStack");
+	bStack.guardGate();
+	bStack.guardGate();
+	bStack.attack("something");
+	bStack.beRepaired(1);
+	bStack.takeDamage(10);
+	std::cout << std::endl;
 	
 	std::cout << "----- Allocating on heap -----" << std::endl;
-	// ClapTrap *a_ptr = new ClapTrap("A_HEAP");
-	// a_ptr->attack("something");
-	// a_ptr->beRepaired(1);
-	// a_ptr->takeDamage(1);
-	// a_ptr->takeDamage(11);
-	// a_ptr->attack("a zombie");
-	// a_ptr->beRepaired(1);
-	// a_ptr->takeDamage(2);
-	// delete a_ptr;
+	// ClapTrap	*aHeapPtr = new ClapTrap("aHeap");
+	// aHeapPtr->attack("something");
+	// aHeapPtr->beRepaired(1);
+	// aHeapPtr->takeDamage(1);
+	// delete aHeapPtr;
+	// std::cout << std::endl;
 
-	// ScavTrap *b_ptr = new ScavTrap("B_HEAP");
-	// b_ptr->attack("something");
-	// b_ptr->beRepaired(1);
-	// b_ptr->takeDamage(1);
-	// b_ptr->takeDamage(11);
-	// b_ptr->attack("a zombie");
-	// b_ptr->beRepaired(1);
-	// b_ptr->takeDamage(2);
-	// delete b_ptr;
+	ScavTrap	*bHeapPtr = new ScavTrap("bHeap");
+	bHeapPtr->guardGate();
+	bHeapPtr->guardGate();
+	bHeapPtr->attack("something");
+	bHeapPtr->beRepaired(1);
+	bHeapPtr->takeDamage(10);
+	delete bHeapPtr;
+	std::cout << std::endl;
 
-	ClapTrap *c_ptr = new ScavTrap("C_HEAP");
-	c_ptr->attack("something");
-	c_ptr->beRepaired(1);
-	c_ptr->takeDamage(1);
-	c_ptr->takeDamage(11);
-	c_ptr->attack("a zombie");
-	c_ptr->beRepaired(1);
-	c_ptr->takeDamage(2);
-	delete c_ptr;
+	ClapTrap	*bHeapBasePtr = new ScavTrap("bHeapBase");
+	bHeapBasePtr->attack("something");
+	bHeapBasePtr->beRepaired(1);
+	bHeapBasePtr->takeDamage(1);
+	delete bHeapBasePtr;
 
 	return (EXIT_SUCCESS);
 }

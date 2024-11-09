@@ -3,18 +3,18 @@
 
 ClapTrap::ClapTrap(void): _name("Untitled"), _hit_pts(10), _energy_pts(10), _attack_damage(0)
 {
-	std::cout << "ClapTrap default constructor called" << std::endl;
+	std::cout << "ClapTrap default constructor called for " << this->_name << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string name): _name(name), _hit_pts(10), _energy_pts(10), _attack_damage(0)
 {
-	std::cout << "ClapTrap string constructor called" << std::endl;
+	std::cout << "ClapTrap string constructor called for " << this->_name << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap &obj): _name(obj._name), _hit_pts(obj._hit_pts), _energy_pts(obj._energy_pts), _attack_damage(obj._attack_damage)
 
 {
-	std::cout << "ClapTrap copy constructor called" << std::endl;
+	std::cout << "ClapTrap copy constructor called for " << this->_name << std::endl;
 }
 
 ClapTrap	&ClapTrap::operator=(const ClapTrap &obj)
@@ -32,7 +32,7 @@ ClapTrap	&ClapTrap::operator=(const ClapTrap &obj)
 
 ClapTrap::~ClapTrap(void)
 {
-	std::cout << "ClapTrap destructor called" << std::endl;
+	std::cout << "ClapTrap destructor called for " << this->_name << std::endl;
 }
 
 void	ClapTrap::attack(const std::string &target)

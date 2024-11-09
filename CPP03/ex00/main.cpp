@@ -5,24 +5,24 @@
 int	main(void)
 {
 	std::cout << "----- Allocating on stack -----" << std::endl;
-	ClapTrap a("A");
-	a.attack("something");
-	a.beRepaired(1);
-	a.takeDamage(1);
-	a.takeDamage(11);
-	a.attack("a zombie");
-	a.beRepaired(1);
-	a.takeDamage(2);
+	ClapTrap	aStack("aStack");
+	aStack.attack("something");
+	aStack.beRepaired(1);
+	aStack.takeDamage(1);
+	aStack.takeDamage(11);
+	aStack.attack("a zombie");
+	aStack.beRepaired(1);
+	aStack.takeDamage(2);
 
 	std::cout << "----- Allocating on heap -----" << std::endl;
-	ClapTrap *a_ptr = new ClapTrap("A_HEAP");
-	a_ptr->attack("something");
-	a_ptr->beRepaired(1);
-	a_ptr->takeDamage(1);
-	a_ptr->takeDamage(11);
-	a_ptr->attack("a zombie");
-	a_ptr->beRepaired(1);
-	a_ptr->takeDamage(2);
-	delete a_ptr;
+	ClapTrap	*aHeapPtr = new ClapTrap("aHeap");
+	aHeapPtr->attack("something");
+	aHeapPtr->beRepaired(1);
+	aHeapPtr->takeDamage(1);
+	aHeapPtr->takeDamage(11);
+	aHeapPtr->attack("a zombie");
+	aHeapPtr->beRepaired(1);
+	aHeapPtr->takeDamage(2);
+	delete aHeapPtr;
 	return (EXIT_SUCCESS);
 }

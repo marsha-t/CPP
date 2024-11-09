@@ -17,10 +17,10 @@ class ClapTrap
 		ClapTrap(std::string name, unsigned int hp, unsigned int ep, unsigned int ad);
 		ClapTrap(const ClapTrap &obj);
 		ClapTrap	&operator=(const ClapTrap &obj);
-		~ClapTrap(void);
+		virtual ~ClapTrap(void);
 		
 		// Other functions
-		void	attack(const std::string &target);
+		virtual void	attack(const std::string &target);
 		void	takeDamage(unsigned int amount);
 		void	beRepaired(unsigned int amount);
 };
