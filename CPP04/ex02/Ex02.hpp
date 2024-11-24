@@ -1,5 +1,5 @@
-#ifndef EX01_HPP
-#define EX01_HPP
+#ifndef EX02_HPP
+#define EX02_HPP
 
 #include <string>
 #include <iostream>
