@@ -13,7 +13,7 @@ class WrongCat: public WrongAnimal
 		~WrongCat(void);
 
 		// Other functions
-		std::string &getType(void) const;
+		std::string getType(void) const;
 };
 
 #endif

@@ -10,7 +10,7 @@
 # define GREEN "\033[32m"
 # define YELLOW "\033[33m"
 # define BOLD "\033[1m"
-# define STRIKE "\033[9m]"
+# define STRIKE "\033[9m"
 // # define UNDERLINE "\033[4m"
 
 #endif

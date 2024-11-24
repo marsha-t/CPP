@@ -10,6 +10,7 @@ class WrongAnimal
 	public:
 		// OCN
 		WrongAnimal(void);
+		WrongAnimal(std::string inputType);
 		WrongAnimal(const WrongAnimal &obj);
 		WrongAnimal &operator=(const WrongAnimal &obj);
 		virtual ~WrongAnimal(void);
