@@ -1,7 +1,7 @@
 #ifndef WRONGCAT_HPP
 #define WRONGCAT_HPP
 
-#include "Ex00.hpp"
+#include "Ex01.hpp"
 #include "WrongAnimal.hpp"
 
 class WrongCat: public WrongAnimal
