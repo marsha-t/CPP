@@ -10,7 +10,7 @@ class AMateria
 
 	public:
 		AMateria(std::string const &type);
-		~AMateria(void);
+		virtual ~AMateria(void);
 		// ...
 		std::string const &getType(void) const;
 		

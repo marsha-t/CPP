@@ -8,6 +8,10 @@ Brain::Brain(void)
 Brain::Brain(const Brain &obj)
 {
 	std::cout << BLUE "Brain copy constructor called" RESET << std::endl;
+	for (int i = 0; i < 100; i++)
+	{
+		ideas[i] = obj.ideas[i];
+	}
 }
 Brain &Brain::operator=(const Brain &obj)
 {

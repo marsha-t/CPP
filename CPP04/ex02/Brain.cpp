@@ -5,7 +5,7 @@ Brain::Brain(void)
 	std::cout << BLUE "Brain default constructor called" RESET << std::endl;
 }
 
-Brain::Brain(const Brain &obj)
+Brain::Brain(const Brain &obj):
 {
 	std::cout << BLUE "Brain copy constructor called" RESET << std::endl;
 }

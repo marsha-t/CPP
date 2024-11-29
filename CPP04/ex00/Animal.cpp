@@ -2,17 +2,17 @@
 
 Animal::Animal(void): type("Animal")
 {
-	std::cout << RED "Animal default constructor called" RESET << std::endl;
+	std::cout << std::string(20, ' ') << RED "Animal default constructor called" RESET << std::endl;
 }
 
 Animal::Animal(std::string inputType):type(inputType)
 {
-	std::cout << RED "Animal string constructor called to create " << inputType << RESET << std::endl;
+	std::cout << std::string(20, ' ') << RED "Animal string constructor called to create " << inputType << RESET << std::endl;
 }
 
 Animal::Animal(const Animal &obj): type(obj.type)
 {
-	std::cout << RED "Animal copy constructor called" RESET << std::endl;
+	std::cout << std::string(20, ' ') << RED "Animal copy constructor called" RESET << std::endl;
 }
 
 Animal	&Animal::operator=(const Animal &obj)
