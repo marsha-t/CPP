@@ -6,15 +6,16 @@
 class AMateria
 {
 	protected:
-		std::string _type;
+		std::string const _type;
 
 	public:
 		AMateria(std::string const &type);
+		~AMateria(void);
 		// ...
-		std::string const &getType() const;
+		std::string const &getType(void) const;
 		
-		virtual AMateria *clone() const = 0;
-		virtual void use(ICharacter &target);
+		// virtual AMateria *clone(void) const = 0;
+		// virtual void use(ICharacter &target);
 };
 
 #endif
