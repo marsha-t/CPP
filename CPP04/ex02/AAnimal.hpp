@@ -8,15 +8,21 @@ class	AAnimal
 	protected:
 		std::string	type;
 	public:
-		// OCN 
+		// Constructor
 		AAnimal(void);
 		AAnimal(std::string inputType);
 		AAnimal(const AAnimal &obj);
-		AAnimal	&operator=(const AAnimal &obj);
+
+		// Destructor
 		virtual ~AAnimal(void);
 
-		// Other functions
+		// Operator
+		AAnimal	&operator=(const AAnimal &obj);
+
+		// Getter & Setter
 		virtual std::string	getType(void) const;
+		
+		// Other functions
 		virtual void	makeSound(void) const = 0;
 };
 

@@ -10,15 +10,24 @@ class	Cat: public Animal
 	private:
 		Brain *catBrain;
 	public:
-		// OCN
+		// Constructor
 		Cat(void);
 		Cat(const Cat &obj);
-		Cat &operator=(const Cat &obj);
+
+		// Destructor
 		~Cat(void);
+
+		// Operator
+		Cat &operator=(const Cat &obj);
+
+		// Getter & Setter
+		std::string getType(void) const;
+		void	setIdea(std::string idea);
+		std::string	getIdea(unsigned int index) const;
 	
 		// Other functions
-		std::string getType(void) const;
 		void	printBrainAddress(void) const;
+		void	printBrain(void) const;
 		void	makeSound(void) const;
 };
 

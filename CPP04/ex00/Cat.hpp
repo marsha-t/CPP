@@ -7,14 +7,20 @@
 class	Cat: public Animal
 {
 	public:
-		// OCN
+		// Constructor
 		Cat(void);
 		Cat(const Cat &obj);
-		Cat &operator=(const Cat &obj);
+
+		// Destructor
 		~Cat(void);
+
+		// Operator
+		Cat &operator=(const Cat &obj);
 	
-		// Other functions
+		// Getter & Setter
 		std::string getType(void) const;
+		
+		// Other functions
 		void	makeSound(void) const;
 };
 

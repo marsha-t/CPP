@@ -8,15 +8,21 @@ class WrongAnimal
 	protected:
 		std::string	type;
 	public:
-		// OCN
+		// Constructor
 		WrongAnimal(void);
 		WrongAnimal(std::string inputType);
 		WrongAnimal(const WrongAnimal &obj);
-		WrongAnimal &operator=(const WrongAnimal &obj);
+
+		// Destructor
 		virtual ~WrongAnimal(void);
 
-		// Other functions
+		// Operator
+		WrongAnimal &operator=(const WrongAnimal &obj);
+
+		// Getter & Setter
 		virtual std::string	getType(void) const;
+		
+		// Other functions
 		void	makeSound(void) const;
 };
 

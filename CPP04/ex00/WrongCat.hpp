@@ -7,13 +7,17 @@
 class WrongCat: public WrongAnimal
 {
 	public:
-		// OCN
+		// Constructor
 		WrongCat(void);
 		WrongCat(const WrongCat &obj);
-		WrongCat &operator=(const WrongCat &obj);
+		
+		// Destructor
 		~WrongCat(void);
+		
+		// Operator
+		WrongCat &operator=(const WrongCat &obj);
 
-		// Other functions
+		// Getter & Setter
 		std::string getType(void) const;
 };
 
