@@ -31,5 +31,7 @@ int main(void)
 	delete meta;
 	delete i;
 	delete j;
+	delete wrongmeta;
+	delete k;
 	return (EXIT_SUCCESS);
 }
