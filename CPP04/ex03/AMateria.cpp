@@ -6,13 +6,11 @@ AMateria* AMateria::_floor[2] = { NULL };
 AMateria::AMateria(std::string const &type): _type(type)
 {
 	debugMsg(RED "AMateria string constructor called" RESET);
-	// std::cout << RED "AMateria string constructor called" RESET << std::endl;
 }
 
 AMateria::~AMateria(void)
 {
 	debugMsg(RED "AMateria destructor called" RESET);
-	// std::cout << RED "AMateria destructor called" RESET << std::endl;
 }
 
 std::string const &AMateria::getType(void) const
@@ -24,11 +22,6 @@ std::string const &AMateria::getCharacterName(void) const
 {
 	return (_character->getName());
 }
-
-// std::string const &AMateria::getSourceNameName(void) const
-// {
-// 	return (_source->getName());
-// }
 
 void	AMateria::setCharacter(Character *character)
 {
