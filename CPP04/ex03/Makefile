@@ -1,11 +1,11 @@
 NAME = ex03
 
-FILES = main.cpp AMateria.cpp Ice.cpp
+FILES = main.cpp AMateria.cpp Ice.cpp Cure.cpp Character.cpp MateriaSource.cpp
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 all: $(NAME)
 
-$(NAME): $(FILES) Ex03.hpp AMateria.hpp Ice.hpp
+$(NAME): $(FILES) Ex03.hpp AMateria.hpp Ice.hpp Cure.hpp ICharacter.hpp Character.hpp IMateriaSource.hpp MateriaSource.hpp
 	c++ $(FILES) $(CXXFLAGS) -o $(NAME)
 
 clean:
