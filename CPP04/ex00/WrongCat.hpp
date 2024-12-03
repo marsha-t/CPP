@@ -19,6 +19,10 @@ class WrongCat: public WrongAnimal
 
 		// Getter & Setter
 		std::string getType(void) const;
+
+		// Other functions
+		void	makeSound(void) const;
+
 };
 
 #endif

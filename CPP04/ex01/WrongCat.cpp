@@ -29,3 +29,9 @@ WrongCat::~WrongCat(void)
 std::string	WrongCat::getType(void) const{
 	return (YELLOW STRIKE + type + RESET);
 }
+
+void	WrongCat::makeSound(void) const
+{
+	std::cout << YELLOW STRIKE "Meow" RESET << std::endl;
+}
+

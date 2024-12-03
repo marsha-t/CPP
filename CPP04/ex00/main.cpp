@@ -22,10 +22,13 @@ int main(void)
 	std::cout << BOLD "------------------OWN TESTS FOR WRONG ANIMALS ------------------" RESET << std::endl;
 	const WrongAnimal *wrongmeta = new WrongAnimal();
 	const WrongAnimal *k = new WrongCat();
+	const WrongCat *l = new WrongCat();
 	std::cout << wrongmeta->getType() << std::endl;
 	std::cout << k->getType() << std::endl;
+	std::cout << l->getType() << std::endl;
 	wrongmeta->makeSound();
 	k->makeSound();
+	l->makeSound();
 	std::cout << BOLD "------------------ CLEAN UP ------------------" RESET << std::endl;
 	
 	delete meta;
@@ -33,5 +36,6 @@ int main(void)
 	delete j;
 	delete wrongmeta;
 	delete k;
+	delete l;
 	return (EXIT_SUCCESS);
 }
