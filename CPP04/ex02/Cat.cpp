@@ -22,6 +22,8 @@ Cat	&Cat::operator=(const Cat &obj)
 		type = obj.type;
 		std:: cout << YELLOW "Delete catBrain at address " << catBrain << RESET << std::endl;
 		delete catBrain;
+		catBrain = NULL;
+		std:: cout << YELLOW "Confirm deletion of catBrain i.e., it points to " << catBrain << RESET << std::endl;
 		catBrain = new Brain();	
 		if (obj.catBrain->getNextIdeaIndex() > 0)
 		{

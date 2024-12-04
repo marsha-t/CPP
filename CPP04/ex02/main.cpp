@@ -78,6 +78,11 @@ void	testArrayPointers(void)
 	{
 		arrayAAnimalPointers[i]->makeSound();
 	}
+	std::cout << "--- MAKE ANIMAL SOUND ---" RESET << std::endl;
+for (int i = 0; i < 4; i++)
+	{
+		arrayAAnimalPointers[i]->AAnimal::makeSound();
+	}
 	std::cout << "--- CLEAN UP ---" RESET << std::endl;
 	for (int i = 0; i < 4; i++)
 	{
@@ -108,10 +113,10 @@ void	testArrayPointers(void)
 
 int main(void)
 {
-	subjectTests();
-	testDogCopy();
+	// subjectTests();
+	// testDogCopy();
 	testCatCopy();
-	testArrayPointers();
+	// testArrayPointers();
 	// testArrayObjects(); // not possible to run this 
 	return (EXIT_SUCCESS);
 }
