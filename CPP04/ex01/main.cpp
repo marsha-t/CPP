@@ -109,10 +109,10 @@ void	testArrayObjects(void)
 
 int main(void)
 {
-	// subjectTests();
-	// testDogCopy();
-	// testCatCopy();
-	// testArrayPointers();
+	subjectTests();
+	testDogCopy();
+	testCatCopy();
+	testArrayPointers();
 	testArrayObjects();
 	return (EXIT_SUCCESS);
 }

@@ -113,10 +113,10 @@ for (int i = 0; i < 4; i++)
 
 int main(void)
 {
-	// subjectTests();
-	// testDogCopy();
+	subjectTests();
+	testDogCopy();
 	testCatCopy();
-	// testArrayPointers();
+	testArrayPointers();
 	// testArrayObjects(); // not possible to run this 
 	return (EXIT_SUCCESS);
 }
