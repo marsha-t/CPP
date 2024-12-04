@@ -104,14 +104,15 @@ void	testArrayObjects(void)
 	{
 		arrayAnimalObjects[i].makeSound();
 	}
+	std::cout << "--- CLEAN UP ---" RESET << std::endl;
 }
 
 int main(void)
 {
-	subjectTests();
-	testDogCopy();
-	testCatCopy();
-	testArrayPointers();
+	// subjectTests();
+	// testDogCopy();
+	// testCatCopy();
+	// testArrayPointers();
 	testArrayObjects();
 	return (EXIT_SUCCESS);
 }

@@ -22,6 +22,8 @@ Dog	&Dog::operator=(const Dog &obj)
 		type = obj.type;
 		std:: cout << GREEN "Delete dogBrain at address " << dogBrain << RESET << std::endl;
 		delete dogBrain;
+		dogBrain = NULL;
+		std:: cout << GREEN "Confirm deletion of dogBrain i.e., it points to " << dogBrain << RESET << std::endl;
 		dogBrain = new Brain();	
 		if (obj.dogBrain->getNextIdeaIndex() > 0)
 		{
