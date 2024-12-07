@@ -44,6 +44,16 @@ unsigned int	Bureaucrat::getGrade(void) const
 	return (_grade);
 }
 
+const char *Bureaucrat::GradeTooHighException::what(void) const throw()
+{
+	return "Grade is too high";
+}
+
+const char *Bureaucrat::GradeTooLowException::what(void) const throw()
+{
+	return "Grade is too low";
+}
+
 void	Bureaucrat::downgrade(void)
 {
 	if (_grade == 150)
@@ -56,16 +66,6 @@ void	Bureaucrat::upgrade(void)
 	if (_grade == 1)
 		throw GradeTooHighException();
 	_grade--;
-}
-
-const char *Bureaucrat::GradeTooHighException::what(void) const throw()
-{
-	return "Grade is too high";
-}
-
-const char *Bureaucrat::GradeTooLowException::what(void) const throw()
-{
-	return "Grade is too low";
 }
 
 std::ostream &operator<<(std::ostream &out, Bureaucrat const &obj)
