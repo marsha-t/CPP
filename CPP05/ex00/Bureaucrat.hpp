@@ -3,9 +3,13 @@
 
 #include <stdexcept>
 #include <string>
+#include <iostream>
 #include <cstdlib>
 
-class Bureaucrat: public std::exception
+// Utility functions
+void	debugMsg(std::string msg);
+
+class Bureaucrat
 {
 	private:
 		const std::string _name;
@@ -14,10 +18,30 @@ class Bureaucrat: public std::exception
 	public:
 		// Constructors
 		Bureaucrat(void);
+		Bureaucrat(const std::string &name, unsigned int grade);
+		Bureaucrat(const Bureaucrat &obj);
+
+		// Destructor
+		~Bureaucrat(void);
+
+		// Operator
+		Bureaucrat &operator=(const Bureaucrat &obj);
 
 		// Getters
 		const std::string &getName(void) const;
 		unsigned int	getGrade(void) const;
+
+		// Exception classes
+		class GradeTooHighException: public std::exception
+		{
+			public:
+				virtual const char *what(void) const throw();
+		};
+		class GradeTooLowException: public std::exception
+		{
+			public:
+				virtual const char *what(void) const throw();
+		};
 
 		// Other functions
 		void	downgrade(void);

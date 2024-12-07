@@ -9,9 +9,9 @@ $(NAME): $(FILES) Bureaucrat.hpp
 	c++ $(FILES) $(CXXFLAGS) -o $(NAME)
 
 clean:
-	rm -rf $(NAME)
 
-fclean: clean
+fclean: 
+	rm -rf $(NAME)
 
 re: fclean all
 
