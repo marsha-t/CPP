@@ -79,8 +79,8 @@ void	testUpgrade(void)
 
 int	main(void)
 {
-	// testConstruction();
-	// testCopy();
+	testConstruction();
+	testCopy();
 	testDowngrade();
 	testUpgrade();
 	return (EXIT_SUCCESS);	
