@@ -1,16 +1,21 @@
 NAME = ex00
 
-FILES = main.cpp Bureaucrat.cpp
+SRC = main.cpp Bureaucrat.cpp 
+OBJ = $(SRC:.cpp=.o)
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 all: $(NAME)
 
-$(NAME): $(FILES) Bureaucrat.hpp
-	c++ $(FILES) $(CXXFLAGS) -o $(NAME)
+$(NAME): $(OBJ)
+	c++ $(OBJ) $(CXXFLAGS) -o $(NAME)
+
+%.o: %.cpp Bureaucrat.hpp 
+	c++ $(CXXFLAGS) -c $< -o $@
 
 clean:
+	rm -rf $(OBJ)
 
-fclean: 
+fclean: clean
 	rm -rf $(NAME)
 
 re: fclean all

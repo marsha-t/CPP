@@ -27,8 +27,8 @@ class Form
 		// Getters
 		const std::string 	&getName(void) const;
 		bool				getSignStatus(void) const;
-		const unsigned int	getGradeToSign(void) const;
-		const unsigned int	getGradeToExecute(void) const;
+		unsigned int	getGradeToSign(void) const;
+		unsigned int	getGradeToExecute(void) const;
 		
 		// Exception classes
 		class GradeTooHighException: public std::exception
@@ -45,6 +45,6 @@ class Form
 		void	beSigned(const Bureaucrat &signer);
 };
 
-std::ostream &operator<<(std::ostream out, const Form &obj);
+std::ostream &operator<<(std::ostream &out, const Form &obj);
 
 #endif
