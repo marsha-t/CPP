@@ -3,6 +3,14 @@
 
 #include <string>
 
+# define RESET "\033[0m"
+# define GREEN "\033[32m"
+
+// Utility functions
+void	debugMsg(std::string msg);
+void	successMsg(std::string msg);
+void	warningMsg(std::string msg);
+
 class Bureaucrat;
 
 class Form

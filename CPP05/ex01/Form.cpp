@@ -66,11 +66,13 @@ const char *Form::GradeTooLowException::what(void) const throw()
 void	Form::beSigned(const Bureaucrat &signer)
 {
 	if (_signed == true)
-		std::cout << GREEN "Form is already signed" RESET << std::endl;
+		warningMsg(GREEN "Form is already signed" RESET);
+		// std::cout << GREEN "Form is already signed" RESET << std::endl;
 	else if (signer.getGrade() <= _gradeToSign)
 	{
 		_signed = true;
-		std::cout << GREEN "Form is signed!" RESET << std::endl;
+		successMsg(GREEN "Form is signed!" RESET);
+		// std::cout << GREEN "Form is signed!" RESET << std::endl;
 	}
 	else
 	{

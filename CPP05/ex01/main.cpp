@@ -2,10 +2,24 @@
 #include "Form.hpp"
 
 bool	debugOn = false;
+bool	successOn = true;
+bool	warningOn = true;
 
 void	debugMsg(std::string msg)
 {
 	if (debugOn)
+		std::cout << msg << std::endl;
+}
+
+void	successMsg(std::string msg)
+{
+	if (successOn)
+		std::cout << msg << std::endl;
+}
+
+void	warningMsg(std::string msg)
+{
+	if (warningOn)
 		std::cout << msg << std::endl;
 }
 
