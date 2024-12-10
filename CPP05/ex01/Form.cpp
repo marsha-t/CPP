@@ -67,12 +67,10 @@ void	Form::beSigned(const Bureaucrat &signer)
 {
 	if (_signed == true)
 		warningMsg(GREEN "Form is already signed" RESET);
-		// std::cout << GREEN "Form is already signed" RESET << std::endl;
 	else if (signer.getGrade() <= _gradeToSign)
 	{
 		_signed = true;
 		successMsg(GREEN "Form is signed!" RESET);
-		// std::cout << GREEN "Form is signed!" RESET << std::endl;
 	}
 	else
 	{

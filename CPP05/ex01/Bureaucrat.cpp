@@ -77,17 +77,14 @@ void	Bureaucrat::signForm(const Form &form) const
 	if (form.getSignStatus())
 	{
 		warningMsg(RED "Form is already signed" RESET);
-		// std::cout << RED "Form is already signed" RESET << std::endl;
 	}
 	else if (_grade <= form.getGradeToSign())
 	{
 		successMsg(RED + _name + " signed " + form.getName() + RESET);
-		std::cout << RED << _name << " signed " << form.getName() << RESET << std::endl;
 	}
 	else
 	{
 		warningMsg(RED + _name + " couldn't sign " + form.getName() + " because his/her grade is not high enough" + RESET);
-		// std::cout << RED << _name << " couldn't sign " << form.getName() << " because his/her grade is not high enough" << RESET << std::endl;
 	}
 }
 
