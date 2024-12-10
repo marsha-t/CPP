@@ -28,6 +28,7 @@ Bureaucrat::~Bureaucrat(void)
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &obj)
 {
 	debugMsg(RED "Bureaucrat copy assignment operator called" RESET);
+	warningMsg(RED "Copy assignment operator only copies grade" RESET);
 	if (this != &obj)
 	{
 		_grade = obj.getGrade();
@@ -49,7 +50,6 @@ const char *Bureaucrat::GradeTooHighException::what(void) const throw()
 {
 	return RED "Grade is too high" RESET;
 }
-
 
 const char *Bureaucrat::GradeTooLowException::what(void) const throw()
 {

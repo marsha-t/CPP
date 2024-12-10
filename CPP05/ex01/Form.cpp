@@ -29,6 +29,7 @@ Form::~Form(void)
 Form	&Form::operator=(const Form &obj)
 {
 	debugMsg(GREEN "Form copy assignment operator called" RESET);
+	warningMsg(GREEN "Copy assignment operator only copies signed status" RESET);
 	if (this != &obj)
 	{
 		_signed = obj.getSignStatus();

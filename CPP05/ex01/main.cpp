@@ -59,6 +59,17 @@ void	testConstruction()
 	}
 }
 
+void	testCopy(void)
+{
+	Form	form1("Form1", 5, 5);
+	Bureaucrat	boss("Boss", 1);
+	Form	form2("Form2", 10, 10);
+	form1.beSigned(boss);
+	std::cout << "Before:" << std::endl << form1 << std::endl << form2 << std::endl;
+	form1 = form2;
+	std::cout << "After:" << std::endl << form1 << std::endl << form2 << std::endl;
+}
+
 void	testSignature(void)
 {
 	Form	form1("Form1", 5, 5);
@@ -94,6 +105,7 @@ void	testSignature(void)
 int	main(void)
 {
 	testConstruction();
+	testCopy();
 	testSignature();
 	return (EXIT_SUCCESS);	
 }
