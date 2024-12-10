@@ -27,6 +27,7 @@ Bureaucrat::~Bureaucrat(void)
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &obj)
 {
 	debugMsg("Bureaucrat copy assignment operator called");
+	warningMsg("Copy assignment operator only copies grade");
 	if (this != &obj)
 	{
 		_grade = obj.getGrade();

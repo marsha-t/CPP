@@ -8,6 +8,7 @@
 
 // Utility functions
 void	debugMsg(std::string msg);
+void	warningMsg(std::string msg);
 
 class Bureaucrat
 {
