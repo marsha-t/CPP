@@ -60,6 +60,7 @@ void	Bureaucrat::downgrade(void)
 	if (_grade == 150)
 		throw GradeTooLowException();
 	_grade++;
+	successMsg(RED "Bureaucrat downgraded" RESET);
 }
 
 void	Bureaucrat::upgrade(void)
@@ -67,6 +68,7 @@ void	Bureaucrat::upgrade(void)
 	if (_grade == 1)
 		throw GradeTooHighException();
 	_grade--;
+	successMsg(RED "Bureaucrat upgraded" RESET);
 }
 
 std::ostream &operator<<(std::ostream &out, Bureaucrat const &obj)

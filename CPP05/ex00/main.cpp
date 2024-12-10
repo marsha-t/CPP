@@ -2,6 +2,7 @@
 
 bool	debugOn = false;
 bool	warningOn = true;
+bool	successOn = true;
 
 void	debugMsg(std::string msg)
 {
@@ -12,6 +13,12 @@ void	debugMsg(std::string msg)
 void	warningMsg(std::string msg)
 {
 	if (warningOn)
+		std::cout << msg << std::endl;
+}
+
+void	successMsg(std::string msg)
+{
+	if (successOn)
 		std::cout << msg << std::endl;
 }
 
