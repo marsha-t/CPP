@@ -61,6 +61,7 @@ void	Bureaucrat::downgrade(void)
 	if (_grade == 150)
 		throw GradeTooLowException();
 	_grade++;
+	successMsg(RED "Bureaucrat downgraded" RESET);
 }
 
 void	Bureaucrat::upgrade(void)
@@ -68,21 +69,22 @@ void	Bureaucrat::upgrade(void)
 	if (_grade == 1)
 		throw GradeTooHighException();
 	_grade--;
+	successMsg(RED "Bureaucrat upgraded" RESET);
 }
 
 void	Bureaucrat::signForm(const AForm &form) const
 {
 	if (form.getSignStatus())
 	{
-		std::cout << RED "Form is already signed" RESET << std::endl;
+		warningMsg(RED "AForm is already signed" RESET);
 	}
 	else if (_grade <= form.getGradeToSign())
 	{
-		std::cout << RED << _name << " signed " << form.getName() << RESET << std::endl;
+		successMsg(RED + _name + " signed " + form.getName() + RESET);
 	}
 	else
 	{
-		std::cout << RED << _name << " couldn't sign " << form.getName() << " because his/her grade is not high enough" << RESET << std::endl;
+		warningMsg(RED + _name + " couldn't sign " + form.getName() + " because his/her grade is not high enough" + RESET);
 	}
 }
 

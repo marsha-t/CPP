@@ -3,7 +3,15 @@
 
 #include <string>
 
+# define RESET "\033[0m"
+# define GREEN "\033[32m"
+
 class Bureaucrat;
+
+// Utility functions
+void	debugMsg(std::string msg);
+void	warningMsg(std::string msg);
+void	successMsg(std::string msg);
 
 class AForm
 {
@@ -19,7 +27,7 @@ class AForm
 		AForm(const AForm &obj);
 
 		// Destructor
-		~AForm(void);
+		virtual ~AForm(void);
 
 		// Operator
 		AForm &operator=(const AForm &obj);
@@ -45,7 +53,7 @@ class AForm
 		{
 			public:
 				virtual const char	*what(void) const throw();
-		}
+		};
 		// Other Functions
 		virtual void	beSigned(const Bureaucrat &signer);
 		void	execute(Bureaucrat const &executor) const;

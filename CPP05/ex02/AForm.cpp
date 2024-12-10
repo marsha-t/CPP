@@ -71,11 +71,11 @@ const char	*AForm::UnsignedForm::what(void) const throw()
 void	AForm::beSigned(const Bureaucrat &signer)
 {
 	if (_signed == true)
-		std::cout << GREEN "AForm is already signed" RESET << std::endl;
+		warningMsg(GREEN "AForm is already signed" RESET);
 	else if (signer.getGrade() <= _gradeToSign)
 	{
 		_signed = true;
-		std::cout << GREEN "AForm is signed!" RESET << std::endl;
+		successMsg(GREEN "AForm is signed!" RESET);
 	}
 	else
 	{
