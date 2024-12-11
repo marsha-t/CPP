@@ -27,3 +27,13 @@ RobotomyCreationForm	&RobotomyCreationForm::operator=(const RobotomyCreationForm
 	(void)obj;
 	return (*this);
 }
+
+void	RobotomyCreationForm::executeAction(void) const
+{
+	std::srand(std::time(0));
+	std::cout << "current time" << std::time(0) << std::endl;
+	if (std::rand() % 2 == 0)
+	{
+		std::cout << PURPLE << getName() << RESET << std::endl;
+	}
+}
