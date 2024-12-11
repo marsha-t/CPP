@@ -23,12 +23,11 @@ ShrubberyCreationForm::~ShrubberyCreationForm(void)
 ShrubberyCreationForm	&ShrubberyCreationForm::operator=(const ShrubberyCreationForm &obj)
 {
 	debugMsg(YELLOW "ShrubberyCreationForm copy assignment operator called" RESET);
-	if (this != &obj)
-	{
-		// _signed = obj.getSignStatus(); // impossible becuase private?
-	}
+	warningMsg(YELLOW "Copy assignment operator only returns original object");
+	(void)obj;
 	return (*this);
 }
+
 const char	*ShrubberyCreationForm::FileNotOpenedException::what(void) const throw()
 {
 	return YELLOW "File not opened" RESET;
@@ -36,7 +35,8 @@ const char	*ShrubberyCreationForm::FileNotOpenedException::what(void) const thro
 
 void	ShrubberyCreationForm::executeAction(void) const
 {
-	std::ofstream	outFile(getName() + "_shrubbery",  std::ios::out | std::ios::trunc);
+	std::ofstream	outFile((getName() + "_shrubbery").c_str(),  std::ios::out | std::ios::trunc);
+
 	if (!outFile.is_open())
 	{
 		throw FileNotOpenedException();

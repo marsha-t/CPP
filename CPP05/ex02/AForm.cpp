@@ -29,6 +29,7 @@ AForm::~AForm(void)
 AForm	&AForm::operator=(const AForm &obj)
 {
 	debugMsg(GREEN "AForm copy assignment operator called" RESET);
+	warningMsg(GREEN "Copy assignment operator only copies signed status" RESET);
 	if (this != &obj)
 	{
 		_signed = obj.getSignStatus();
