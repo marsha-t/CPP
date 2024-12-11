@@ -2,6 +2,7 @@
 #define AFORM_HPP
 
 #include <string>
+#include <iostream>
 
 # define RESET "\033[0m"
 # define GREEN "\033[32m"

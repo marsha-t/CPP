@@ -1,6 +1,7 @@
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
 
 bool	debugOn = false;
 bool	successOn = true;
@@ -45,8 +46,30 @@ void	testShrubberyCreationForm(void)
 	delete executor;
 }
 
+void	testRobotomyRequestForm(void)
+{
+	AForm	*robot = new RobotomyRequestForm("Robot");
+	Bureaucrat	*signer = new Bureaucrat("Signer", 72);
+	robot->beSigned(*signer);
+	Bureaucrat	*executor = new Bureaucrat("Executor", 46);
+	try
+	{
+		robot->execute(*executor);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+	executor->upgrade();
+	robot->execute(*executor);
+	delete robot;
+	delete signer;
+	delete executor;
+}
+
 int	main(void)
 {
-	testShrubberyCreationForm();
+	// testShrubberyCreationForm();
+	testRobotomyRequestForm();
 	return (EXIT_SUCCESS);
 }
