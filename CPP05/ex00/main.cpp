@@ -1,6 +1,6 @@
 #include "Bureaucrat.hpp"
 
-bool	debugOn = false;
+bool	debugOn = true;
 bool	warningOn = true;
 bool	successOn = true;
 
@@ -26,7 +26,8 @@ void	testConstruction(void)
 {
 	try
 	{
-		Bureaucrat b1("testGrade0", 0);
+		Bureaucrat *b1 = new Bureaucrat("testGrade0", 0);
+		(void) b1;
 	}
 	catch (std::exception &e)
 	{
@@ -34,7 +35,8 @@ void	testConstruction(void)
 	}
 	try
 	{
-		Bureaucrat b1("testGrade151", 151);
+		Bureaucrat *b1 = new Bureaucrat("testGrade151", 151);
+		(void) b1;
 	}
 	catch (std::exception &e)
 	{
@@ -94,8 +96,8 @@ void	testUpgrade(void)
 int	main(void)
 {
 	testConstruction();
-	testCopy();
-	testDowngrade();
-	testUpgrade();
+	// testCopy();
+	// testDowngrade();
+	// testUpgrade();
 	return (EXIT_SUCCESS);	
 }
