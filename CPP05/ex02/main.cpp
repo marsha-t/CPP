@@ -2,6 +2,7 @@
 #include "AForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 bool	debugOn = false;
 bool	successOn = true;
@@ -67,9 +68,31 @@ void	testRobotomyRequestForm(void)
 	delete executor;
 }
 
+void	testPresidentialPardonForm(void)
+{
+	AForm	*criminal = new PresidentialPardonForm("Criminal");
+	Bureaucrat	*signer = new Bureaucrat("Signer", 25);
+	criminal->beSigned(*signer);
+	Bureaucrat	*executor = new Bureaucrat("Executor", 6);
+	try
+	{
+		criminal->execute(*executor);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+	executor->upgrade();
+	criminal->execute(*executor);
+	delete criminal;
+	delete signer;
+	delete executor;
+}
+
 int	main(void)
 {
 	// testShrubberyCreationForm();
-	testRobotomyRequestForm();
+	// testRobotomyRequestForm();
+	// testPresidentialPardonForm();
 	return (EXIT_SUCCESS);
 }

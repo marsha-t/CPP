@@ -27,3 +27,8 @@ PresidentialPardonForm	&PresidentialPardonForm::operator=(const PresidentialPard
 	(void)obj;
 	return (*this);
 }
+
+void	PresidentialPardonForm::executeAction(void) const
+{
+	std::cout << BLUE << getName() << " has been pardoned by Zaphod Beeblebrox" RESET << std::endl;
+}
