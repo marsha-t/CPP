@@ -30,6 +30,7 @@ void	testShrubberyCreationForm(void)
 {
 	AForm	*shrub = new ShrubberyCreationForm("Shrub");
 	Bureaucrat	*signer = new Bureaucrat("Signer", 145);
+	signer->executeForm(*shrub);
 	shrub->beSigned(*signer);
 	Bureaucrat	*executor = new Bureaucrat("Executor", 138);
 	try
@@ -40,8 +41,10 @@ void	testShrubberyCreationForm(void)
 	{
 		std::cout << e.what() << std::endl;
 	}
+	executor->executeForm(*shrub);
 	executor->upgrade();
 	shrub->execute(*executor);
+	executor->executeForm(*shrub);
 	delete shrub;
 	delete signer;
 	delete executor;
@@ -51,6 +54,7 @@ void	testRobotomyRequestForm(void)
 {
 	AForm	*robot = new RobotomyRequestForm("Robot");
 	Bureaucrat	*signer = new Bureaucrat("Signer", 72);
+	signer->executeForm(*robot);
 	robot->beSigned(*signer);
 	Bureaucrat	*executor = new Bureaucrat("Executor", 46);
 	try
@@ -61,8 +65,10 @@ void	testRobotomyRequestForm(void)
 	{
 		std::cerr << e.what() << std::endl;
 	}
+	executor->executeForm(*robot);
 	executor->upgrade();
 	robot->execute(*executor);
+	executor->executeForm(*robot);
 	delete robot;
 	delete signer;
 	delete executor;
@@ -72,6 +78,7 @@ void	testPresidentialPardonForm(void)
 {
 	AForm	*criminal = new PresidentialPardonForm("Criminal");
 	Bureaucrat	*signer = new Bureaucrat("Signer", 25);
+	signer->executeForm(*criminal);
 	criminal->beSigned(*signer);
 	Bureaucrat	*executor = new Bureaucrat("Executor", 6);
 	try
@@ -82,8 +89,10 @@ void	testPresidentialPardonForm(void)
 	{
 		std::cerr << e.what() << std::endl;
 	}
+	executor->executeForm(*criminal);
 	executor->upgrade();
 	criminal->execute(*executor);
+	executor->executeForm(*criminal);
 	delete criminal;
 	delete signer;
 	delete executor;
@@ -91,8 +100,8 @@ void	testPresidentialPardonForm(void)
 
 int	main(void)
 {
-	// testShrubberyCreationForm();
-	// testRobotomyRequestForm();
-	// testPresidentialPardonForm();
+	testShrubberyCreationForm();
+	testRobotomyRequestForm();
+	testPresidentialPardonForm();
 	return (EXIT_SUCCESS);
 }
