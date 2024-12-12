@@ -10,7 +10,7 @@ PresidentialPardonForm::PresidentialPardonForm(std::string name): AForm(name, 25
 	debugMsg(BLUE "PresidentialPardonForm string constructor called " RESET);
 }
 
-PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &obj): AForm(obj.getName(), obj.getGradeToSign(), obj.getGradeToExecute())
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &obj): AForm(obj)
 {
 	debugMsg(BLUE "PresidentialPardonForm copy constructor called " RESET);
 }

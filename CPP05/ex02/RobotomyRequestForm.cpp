@@ -10,7 +10,7 @@ RobotomyRequestForm::RobotomyRequestForm(std::string name): AForm(name, 72, 45)
 	debugMsg(PURPLE "RobotomyCreationForm string constructor called" RESET);
 }
 
-RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &obj): AForm(obj.getName(), obj.getGradeToSign(), obj.getGradeToExecute())
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &obj): AForm(obj)
 {
 	debugMsg(PURPLE "RobotomyCreationForm copy constructor called" RESET);
 }

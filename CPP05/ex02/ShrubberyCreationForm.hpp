@@ -21,12 +21,6 @@ class ShrubberyCreationForm: public AForm
 		// Operators
 		ShrubberyCreationForm	&operator=(const ShrubberyCreationForm &obj);
 		
-		// Exception classes
-		class FileNotOpenedException: public std::exception
-		{
-			virtual const char	*what(void) const throw();
-		};
-
 		// Other Functions
 		virtual void	executeAction(void) const;
 };

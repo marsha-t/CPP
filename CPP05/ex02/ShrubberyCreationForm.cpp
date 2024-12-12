@@ -10,7 +10,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(std::string name): AForm(name, 145,
 	debugMsg(YELLOW "ShrubberyCreationForm string constructor called" RESET);
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &obj): AForm(obj.getName(), obj.getGradeToSign(), obj.getGradeToExecute())
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &obj): AForm(obj)
 {
 	debugMsg(YELLOW "ShrubberyCreationForm copy constructor called" RESET);
 }
@@ -28,18 +28,14 @@ ShrubberyCreationForm	&ShrubberyCreationForm::operator=(const ShrubberyCreationF
 	return (*this);
 }
 
-const char	*ShrubberyCreationForm::FileNotOpenedException::what(void) const throw()
-{
-	return YELLOW "File not opened" RESET;
-}
-
 void	ShrubberyCreationForm::executeAction(void) const
 {
 	std::ofstream	outFile((getName() + "_shrubbery").c_str(),  std::ios::out | std::ios::trunc);
 
 	if (!outFile.is_open())
 	{
-		throw FileNotOpenedException();
+		warningMsg(YELLOW "File not opened successfully" RESET);
+		return ;
 	}
 	outFile << "    *" << std::endl;
 	outFile << "   ***" << std::endl;
