@@ -30,19 +30,21 @@ void	successMsg(std::string msg)
 void	testIntern(void)
 {
 	Intern	*newIntern = new Intern();
-	AForm	*SCF = newIntern->makeForm("SCF", "Shrub");
-	AForm	*RRF = newIntern->makeForm("RRF", "Robot");
-	AForm	*PPF = newIntern->makeForm("PPF", "Criminal");
+	AForm	*SCF = newIntern->makeForm("shrubbery creation", "Shrub");
+	AForm	*RRF = newIntern->makeForm("robotomy request", "Robot");
+	AForm	*PPF = newIntern->makeForm("presidential pardon", "Criminal");
+	AForm	*random = newIntern->makeForm("random", "Random");
 
 	std::cout << *SCF << std::endl;
 	std::cout << *RRF << std::endl;
 	std::cout << *PPF << std::endl;
+	if (!random)
+		std::cout << "Null" << std::endl;
 
 	delete newIntern;
 	delete SCF;
 	delete RRF;
 	delete PPF;
-
 }
 
 int	main(void)

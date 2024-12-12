@@ -6,7 +6,7 @@
 Intern::Intern(void)
 {
 	debugMsg(CYAN "Intern default constructor called" RESET);
-	successMsg(CYAN "I can make forms. Just let me know using acronyms: SCF, RRF or PPF " RESET);
+	successMsg(CYAN "I can make forms. Just let me know which forms you want: Shrubbery Creation, Robotomy Request or Presidential Pardon" RESET);
 }
 
 Intern::Intern(const Intern &obj)
@@ -29,7 +29,7 @@ Intern	&Intern::operator=(const Intern &obj)
 
 AForm	*Intern::makeForm(std::string name, std::string target) const
 {
-	std::string	formNames[3] = {"SCF", "RRF", "PPF"};
+	std::string	formNames[3] = {"shrubbery creation", "robotomy request", "presidential pardon"};
 	int	i = 0;
 	while (name != formNames[i] && i < 3)
 		i++;
