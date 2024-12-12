@@ -89,6 +89,26 @@ void	Bureaucrat::signForm(const AForm &form) const
 	}
 }
 
+void	Bureaucrat::executeForm(AForm const &form) const
+{
+	if (form.getSignStatus())
+	{
+		warningMsg(RED "Form is not signed" RESET);
+		return;
+	}
+	if (_grade > form.getGradeToExecute())
+	{
+		warningMsg(RED "" RESET);
+		return;
+	}
+	std::cout << RED << RESET << std::endl;
+	// if (!getSignStatus())
+	// 	throw UnsignedForm();
+	// if (executor.getGrade() > getGradeToExecute())
+	// 	throw GradeTooLowException();
+	// executeAction();
+}
+
 std::ostream &operator<<(std::ostream &out, Bureaucrat const &obj)
 {
 	out << RED << obj.getName() << ", bureaucrat grade " << obj.getGrade() << RESET << std::flush;
