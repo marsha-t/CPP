@@ -6,7 +6,7 @@
 Intern::Intern(void)
 {
 	debugMsg(CYAN "Intern default constructor called" RESET);
-	successMsg(CYAN "I can make forms. Just let me know which forms you want: Shrubbery Creation, Robotomy Request or Presidential Pardon" RESET);
+	successMsg(CYAN "Let me know which form you want: shrubbery creation, robotomy request or presidential pardon" RESET);
 }
 
 Intern::Intern(const Intern &obj)
