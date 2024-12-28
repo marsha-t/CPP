@@ -12,15 +12,28 @@ void	ScalarConverter::convert(const std::string &literal)
 
 void	ScalarConverter::convertInt(const std::string &literal)
 {
-	std::size_t pos = 0;
-	try
+	std::stringstream	ss(literal);
+	double					doubleNum;
+
+	if (ss >> doubleNum)
 	{
-		int	num = std::stoi(literal, &pos);
-		if (pos == literal.length() || (pos == literal.length() - 1 && literal[pos] == 'f'))
-		std::cout << "int: " << num << std::endl;
+		if (ss.eof())
+		{
+			if (doubleNum >= INT_MIN && doubleNum <= INT_MAX)
+				std::cout << "int: " << static_cast<int>(doubleNum) << std::endl;
+			else
+				std::cout << "int: impossible" << std::endl;
+			return;
+		}
+		std::string remaining;
+		ss >> remaining;
+		if (remaining == "f" && doubleNum >= INT_MIN && doubleNum <= INT_MAX)
+		{
+			std::cout << "int: " << static_cast<int>(doubleNum) << std::endl;
+			return;
+		}
+		std::cout << "int: impossible" << std::endl;
+		return;
 	}
-	catch (const std::exception &e) 
-	{
-		std::cerr << "int: impossible" << std::endl;
-	}
+	std::cout << "int: impossible" << std::endl;
 }
