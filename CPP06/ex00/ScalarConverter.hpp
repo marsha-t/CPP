@@ -12,6 +12,7 @@ class ScalarConverter
 		// OCN?
 
 		static void	convertInt(const std::string &literal);
+		static void	convertFloat(const std::string &literal);
 
 };
 
