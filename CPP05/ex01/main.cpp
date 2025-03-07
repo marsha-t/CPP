@@ -1,7 +1,7 @@
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 
-bool	debugOn = false;
+bool	debugOn = true;
 bool	successOn = true;
 bool	warningOn = true;
 
@@ -25,6 +25,9 @@ void	warningMsg(std::string msg)
 
 void	testConstruction()
 {
+	Form	form1("form0", 1, 1);
+	std::cout << form1 << std::endl;
+
 	try
 	{
 		Form	form1("form1", 0, 1);
@@ -77,14 +80,7 @@ void	testSignature(void)
 
 	std::cout << form1 << std::endl;
 	std::cout << staff << std::endl;
-	try
-	{
-		staff.signForm(form1);
-	}
-	catch (std::exception &e)
-	{
-		std::cout << e.what() << std::endl;
-	}
+	staff.signForm(form1);
 	try
 	{
 		form1.beSigned(staff);

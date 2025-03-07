@@ -3,6 +3,7 @@
 
 #include <fstream>
 #include "AForm.hpp"
+#include "Bureaucrat.hpp"
 
 # define RESET "\033[0m"
 # define YELLOW "\033[33m"

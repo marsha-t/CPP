@@ -56,7 +56,7 @@ class AForm
 				virtual const char	*what(void) const throw();
 		};
 		// Other Functions
-		virtual void	beSigned(const Bureaucrat &signer);
+		void	beSigned(const Bureaucrat &signer);
 		void	execute(Bureaucrat const &executor) const;
 
 	protected:

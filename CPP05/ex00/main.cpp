@@ -58,7 +58,6 @@ void	testCopy(void)
 
 void	testDowngrade(void)
 {
-	std::cout << "--------- Test downgrade ---------" << std::endl;
 	Bureaucrat b1("staff", 149);
 	std::cout << "Original grade: " << b1.getGrade() << std::endl;
 	b1.downgrade();
@@ -76,7 +75,6 @@ void	testDowngrade(void)
 
 void	testUpgrade(void)
 {
-	std::cout << "--------- Test upgrade ---------" << std::endl;
 	Bureaucrat b2("boss", 2);
 	std::cout << "Original grade: " << b2.getGrade() << std::endl;
 	b2.upgrade();
@@ -84,7 +82,6 @@ void	testUpgrade(void)
 	try
 	{
 		b2.upgrade();
-		
 	}
 	catch (std::exception &e)
 	{
@@ -96,8 +93,8 @@ void	testUpgrade(void)
 int	main(void)
 {
 	testConstruction();
-	// testCopy();
-	// testDowngrade();
-	// testUpgrade();
+	testCopy();
+	testDowngrade();
+	testUpgrade();
 	return (EXIT_SUCCESS);	
 }

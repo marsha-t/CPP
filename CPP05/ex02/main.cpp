@@ -4,7 +4,7 @@
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
 
-bool	debugOn = false;
+bool	debugOn = true;
 bool	successOn = true;
 bool	warningOn = true;
 
@@ -101,7 +101,7 @@ void	testPresidentialPardonForm(void)
 int	main(void)
 {
 	testShrubberyCreationForm();
-	testRobotomyRequestForm();
-	testPresidentialPardonForm();
+	// testRobotomyRequestForm();
+	// testPresidentialPardonForm();
 	return (EXIT_SUCCESS);
 }

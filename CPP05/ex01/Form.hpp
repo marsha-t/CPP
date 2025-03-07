@@ -22,7 +22,7 @@ class Form
 		const unsigned int	_gradeToExecute;
 	public:
 		// Constructors
-		Form(void);
+		Form(void); 
 		Form(std::string name, unsigned int gradeToSign, unsigned int gradeToExecute);
 		Form(const Form &obj);
 
