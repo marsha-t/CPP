@@ -7,7 +7,7 @@ Bureaucrat::Bureaucrat(void): _name("Nameless"), _grade(150)
 
 Bureaucrat::Bureaucrat(const std::string &name, unsigned int grade): _name(name), _grade(grade)
 {
-	debugMsg("Bureaucrat string constructor called for " + name);
+	debugMsg("Bureaucrat parameterised constructor called for " + name);
 	if (grade < 1)
 		throw GradeTooHighException();
 	else if (grade > 150)

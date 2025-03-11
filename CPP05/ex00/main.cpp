@@ -42,6 +42,12 @@ void	testConstruction(void)
 	{
 		std::cout << e.what() << std::endl;
 	}
+	Bureaucrat *b1 = new Bureaucrat("testGrade1", 1);
+	std::cout << *b1 << std::endl;
+	delete b1;
+	b1 = new Bureaucrat("testGrade150", 150);
+	std::cout << *b1 << std::endl;
+	delete b1;
 }
 
 void	testCopy(void)
