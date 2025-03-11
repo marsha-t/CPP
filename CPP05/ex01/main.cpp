@@ -27,7 +27,6 @@ void	testConstruction()
 {
 	Form	form1("form0", 1, 1);
 	std::cout << form1 << std::endl;
-
 	try
 	{
 		Form	form1("form1", 0, 1);
