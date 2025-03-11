@@ -53,7 +53,7 @@ class AForm
 		class UnsignedForm: public std::exception
 		{
 			public:
-				virtual const char	*what(void) const throw();
+				virtual const char *what(void) const throw();
 		};
 		// Other Functions
 		void	beSigned(const Bureaucrat &signer);

@@ -101,7 +101,7 @@ void	testPresidentialPardonForm(void)
 int	main(void)
 {
 	testShrubberyCreationForm();
-	// testRobotomyRequestForm();
-	// testPresidentialPardonForm();
+	testRobotomyRequestForm();
+	testPresidentialPardonForm();
 	return (EXIT_SUCCESS);
 }
