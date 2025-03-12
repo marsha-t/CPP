@@ -5,11 +5,6 @@
 #include <string>
 #include <iostream>
 #include <stdint.h>
-
-struct	Data
-{
-	std::string	word;
-	int	num;
-};
+#include "Data.hpp"
 
 #endif

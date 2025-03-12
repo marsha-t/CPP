@@ -1,3 +1,4 @@
+#include "Ex01.hpp"
 #include "Serializer.hpp"
 
 int	main(void)
@@ -19,7 +20,5 @@ int	main(void)
 		std::cout << "\nDeserialized and data address are the same" << std::endl;
 	else
 		std::cout << "\nDeserialized and data address are different" << std::endl;
-
-
 	return (EXIT_SUCCESS);
 }
