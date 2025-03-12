@@ -31,7 +31,7 @@ bool	ScalarConverter::pseudoLiteral(const std::string &literal)
         std::cout << "char: impossible\nint: impossible\nfloat: nanf\ndouble: nan" << std::endl;
         return (true);
     }
-	else if (literal = "inf" || literal == "+inf" || literal == "+inff")
+	else if (literal == "inf" || literal == "+inf" || literal == "+inff")
 	{
 		std::cout << "char: impossible\nint: impossible\nfloat: +inff\ndouble: +inf" << std::endl;
 		return (true);
@@ -68,18 +68,31 @@ void	ScalarConverter::convertInt(double d)
 
 void	ScalarConverter::convertFloat(double d)
 {
-	if (d >= - std::numeric_limits<float>::max() && d <= std::numeric_limits<float>::max())
+	if (d >= -std::numeric_limits<float>::max() && d <= std::numeric_limits<float>::max())
 	{
 		std::cout << std::fixed << std::setprecision(1);
 		std::cout << "float: " <<  static_cast<float>(d) << "f" << std::endl;
 	}
+	else if (d < -std::numeric_limits<float>::max())
+		std::cout << "float: -inff"	<< std::endl;
+	else if (d > std::numeric_limits<float>::max())
+		std::cout << "float: +inff"	<< std::endl;
+	else if (isnan(d))
+		std::cout << "float: nanf" << std::endl;
 	else
-		std::cout << "float: impossible" << std::endl;
+		std::cout << d <<"float: impossible" << std::endl;
 }
 void	ScalarConverter::convertDouble(double d)
 {
-	std::cout << std::fixed << std::setprecision(1);
-	std::cout << "double: " << d << std::endl;
+	if (d > std::numeric_limits<double>::max())
+		std::cout << "double: +inf" << std::endl;
+	else if (d < -std::numeric_limits<double>::max())
+		std::cout << "double: -inf" << std::endl;
+	else
+	{
+		std::cout << std::fixed << std::setprecision(1);
+		std::cout << "double: " << d << std::endl;
+	}
 }
 
 ScalarConverter::ScalarConverter(void) {}
