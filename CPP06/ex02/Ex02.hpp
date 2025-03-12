@@ -4,5 +4,6 @@
 #include <ctime>
 #include <cstdlib>
 #include <iostream>
+#include <stdexcept>
 
 #endif 

@@ -48,29 +48,40 @@ void	identify(Base &p)
 	std::cout << "Reference identifier: " << std::flush;
 	try 
 	{
-		dynamic_cast<A &>(p);
+		(void) dynamic_cast<A &>(p);
 		std::cout << "Class A" << std::endl;
+		return ;
 	}
-	catch (...) {}
+	catch (std::bad_cast &bc) {}
 	try
 	{
-		dynamic_cast<B &>(p);
+		(void) dynamic_cast<B &>(p);
 		std::cout << "Class B" << std::endl;
+		return ;
 	}
-	catch (...) {}
+	catch (std::bad_cast &bc) {}
 	try
 	{
-		dynamic_cast<C &>(p);
+		(void) dynamic_cast<C &>(p);
 		std::cout << "Class C" << std::endl;
+		return ;
 	}
-	catch (...) {}
+	catch (std::bad_cast &e) {}
 	std::cout << "Unknown" << std::endl;
+	return ;
 }
 
 int	main(void)
 {
-	Base *ptr = generate();
+	Base	*ptr = generate();
 	identify(ptr);
 	identify(*ptr);
+	
+	Base	*basePtr = new Base();
+	identify(basePtr);
+	identify(*basePtr);
+	delete basePtr;
+	
+	identify (nullptr);
 	return (EXIT_SUCCESS);
 }
