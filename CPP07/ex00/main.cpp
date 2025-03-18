@@ -70,9 +70,18 @@ void	classTest(void)
 	std::cout << "max (a, b) = " << ::max(a, b).getValue() << std::endl;
 }
 
-int	main( void ) {
-	
-	subjectTests();
-	classTest();
+int	main (int argc, char **argv)
+{
+	if (argc == 2)
+	{
+		int	test = atoi(argv[1]);
+		switch (test)
+		{
+			case 0:
+				subjectTests();
+			case 1:
+				classTest();
+		}
+	}
 	return (EXIT_SUCCESS);
 }

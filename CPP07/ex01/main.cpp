@@ -57,10 +57,20 @@ void	testsingleElement(void)
 	iter(words, 1, ::print<std::string>);
 }
 
-int	main(void)
+int	main(int argc, char **argv)
 {
-	testNormalCases();
-	testEmptyArrays();	
-	testsingleElement();
+	if (argc == 2)
+	{
+		int	test = atoi(argv[1]);
+		switch (test)
+		{
+			case 0:
+				testNormalCases();
+			case 1:
+				testEmptyArrays();	
+			case 2:
+				testsingleElement();
+		}
+	}
 	return (EXIT_SUCCESS);
 }
