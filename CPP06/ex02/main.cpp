@@ -25,13 +25,13 @@ Base	*generate(void)
 			return (new C());
 		}
 	}
-	return NULL;
+	return 0;
 }
 
 void	identify(Base *p)
 {
 	std::cout << "Pointer identifier: " << std::flush;
-	if (p == NULL)
+	if (p == 0)
 		std::cout << "Null pointer" << std::endl;
 	else if (dynamic_cast<A *>(p))
 		std::cout << "Class A" << std::endl;
@@ -82,6 +82,6 @@ int	main(void)
 	identify(*basePtr);
 	delete basePtr;
 	
-	identify (nullptr);
+	identify (0);
 	return (EXIT_SUCCESS);
 }

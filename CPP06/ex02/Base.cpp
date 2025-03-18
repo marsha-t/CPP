@@ -1,8 +1,6 @@
 #include "Base.hpp"
 
-// Base::Base(void)
-// {
-// 	return ;
-// }
-
-Base::~Base (void) {}
+Base::~Base(void)
+{
+	return ;
+}
