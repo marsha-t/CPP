@@ -14,7 +14,7 @@ void	ScalarConverter::convert(const std::string &literal)
 		d = std::strtod(literal.c_str(), &end);
 		if (!(*end == '\0' || (*end == 'f' && *(end + 1) == '\0')))
 		{
-			std::cout << "char: invalid\nint: invalid\nfloat: invalid\ndouble: invalid" << std::endl;
+			std::cout << "char: impossible\nint: impossible\nfloat: impossible\ndouble: impossible" << std::endl;
 			return ; 
 		}
 	}
