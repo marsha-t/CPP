@@ -1,5 +1,5 @@
-#ifndef	ARRAY_TPP
-#define ARRAY_TPP
+#ifndef	ARRAY_HPP
+#define ARRAY_HPP
 
 #include <stdexcept>
 
