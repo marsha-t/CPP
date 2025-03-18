@@ -78,9 +78,15 @@ int	main (int argc, char **argv)
 		switch (test)
 		{
 			case 0:
+			{
 				subjectTests();
+				break ;
+			}
 			case 1:
+			{
 				classTest();
+				break ;
+			}
 		}
 	}
 	return (EXIT_SUCCESS);
