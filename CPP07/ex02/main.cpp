@@ -162,7 +162,9 @@ int	main(int argc, char **argv)
 {
 	if (argc == 2)
 	{
-		int	test = atoi(argv[1]);
+		int	test = std::atoi(argv[1]);
+		if (test < 0 || test > 2)
+			return (EXIT_FAILURE);
 		switch (test)
 		{
 			case 0:
@@ -181,6 +183,7 @@ int	main(int argc, char **argv)
 				break ;
 			}
 		}
+		return (EXIT_SUCCESS);
 	}
-	return (EXIT_SUCCESS);
+	return (EXIT_FAILURE);
 }

@@ -61,16 +61,28 @@ int	main(int argc, char **argv)
 {
 	if (argc == 2)
 	{
-		int	test = atoi(argv[1]);
+		int	test = std::atoi(argv[1]);
+		if (test < 0 || test > 2)
+			return (EXIT_FAILURE);
 		switch (test)
 		{
 			case 0:
+			{
 				testNormalCases();
+				break ;
+			}
 			case 1:
+			{
 				testEmptyArrays();	
+				break ;
+			}
 			case 2:
+			{
 				testsingleElement();
+				break ;
+			}
 		}
+		return (EXIT_SUCCESS);
 	}
-	return (EXIT_SUCCESS);
+	return (EXIT_FAILURE);
 }
