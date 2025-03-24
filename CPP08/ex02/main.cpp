@@ -1,6 +1,7 @@
 #include "MutantStack.hpp"
 #include <iostream>
 #include <cstdlib>
+#include <list>
 
 void	subjectTests(void)
 {
@@ -75,12 +76,30 @@ void	testIterator(void)
 	}
 }
 
+void	testList(void)
+{
+	MutantStack<int, std::list<int> > myListStack;
+	myListStack.push(10);
+	myListStack.push(11);
+	myListStack.push(12);
+	for (MutantStack<int, std::list<int> >::iterator it = myListStack.begin(); it != myListStack.end(); ++it)
+	{
+		std::cout << *it << std::endl;
+	}
+
+	const MutantStack<int, std::list<int> >	myConstListStack = myListStack;
+	for (MutantStack<int, std::list<int> >::const_iterator it = myConstListStack.begin(); it != myConstListStack.end(); ++it)
+	{
+		std::cout << *it << std::endl;
+	}
+}
+
 int	main(int argc, char **argv)
 {
 	if (argc == 2)
 	{
 		int	test = std::atoi(argv[1]);
-		if (test < 0 || test > 4)
+		if (test < 0 || test > 5)
 			return (1);
 		switch (test)
 		{
@@ -96,6 +115,8 @@ int	main(int argc, char **argv)
 			case 3:
 				testIterator();
 				break ;
+			case 4:
+				testList();
 		}
 		return (0);
 	}
