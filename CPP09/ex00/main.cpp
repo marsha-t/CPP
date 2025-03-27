@@ -1,25 +1,31 @@
 #include "BitcoinExchange.hpp"
 #include <iostream>
 
+bool debugOn = false;
+
 void	debugMsg(std::string msg)
 {
-	std::cout << msg << std::endl;
+	if (debugOn)
+		std::cout << msg << std::endl;
+}
+
+void	errorMsg(std::string msg)
+{
+	std::cerr << msg << std::endl;
 }
 
 int	main(int argc, char **argv)
 {
-	if (argc != 3)
+	if (argc != 2)
 	{
-		std::cerr << "Invalid number of arguments" << std::endl;
+		errorMsg("Invalid number of arguments");
 		return (1);
 	}
 	BitcoinExchange	exchange;
-	exchange.loadDatabase(argv[1]);
-	// read csv
-	// validate date format & exchange rate
-	// store in map
-	// read request file
-	// search for value
-	// print found value
-
+	if (!exchange.loadDatabase("data.csv"))
+		return (1);
+	// exchange.printDatabase();
+	if (!exchange.processInput(argv[1]))
+		return (1);
+	return (0);
 }

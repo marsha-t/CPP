@@ -9,6 +9,7 @@ BitcoinExchange::BitcoinExchange(const BitcoinExchange &obj)
 {
 	debugMsg("BitcoinExchange initalised via copy");
 	// deep copy
+	(void)obj;
 }
 
 BitcoinExchange::~BitcoinExchange(void) 
@@ -27,15 +28,185 @@ BitcoinExchange	&BitcoinExchange::operator=(const BitcoinExchange &obj)
 
 bool	BitcoinExchange::loadDatabase(std::string const &filename)
 {
-	std::ifstream database(filename);
-	if (!database.is_open())
+	if (!checkCSVExtension(filename))
 	{
-		std::cerr << "Error opening " << filename << std::endl;
+		errorMsg("Error: Database doesn't have csv extension");
 		return (false);
 	}
+	std::ifstream	database(filename.c_str());
+	if (!database.is_open())
+	{
+		errorMsg("Error: Cannot open " + filename);
+		return (false);
+	}
+	std::string	row;
+	if (!std::getline(database, row) || row != "date,exchange_rate")
+	{
+		errorMsg("Error: Invalid CSV header");
+		return (false);
+	}
+	std::size_t	comma;
+	std::string date;
+	std::string valueStr;
+	double value;
+	while (std::getline(database, row))
+	{
+		comma = row.find(',');
+		if (comma == std::string::npos)
+		{
+			errorMsg ("Error: Bad line format in database");
+			return (false);
+		}
+		date = trim(row.substr(0, comma));
+		valueStr = trim(row.substr(comma + 1));
+		value = std::atof(valueStr.c_str());
+		if (!isValidDate(date))
+		{
+			errorMsg("Error: Invalid date in database");
+			return (false);
+		}
+		if (!isValidValue(valueStr) || value < 0)
+		{	
+			errorMsg("Error: Invalid value in database");
+			return (false);
+		}
+		_database.insert(std::pair<std::string, double>(date, value));
+	}
+	return (true);
 }
 
-double	BitcoinExchange::getRate(std::string const &date) const
+bool	BitcoinExchange::checkCSVExtension(std::string const &filename) const
 {
+	std::string	ext = ".csv";
+	if (filename.length() >= ext.length() && filename.compare(filename.length() - ext.length(), ext.length(), ext) == 0)
+		return (true);
+	return (false);
+}
 
+/* isValidDate checks 
+	- length of 10 and correct dashes
+	- dates are numeric and have the right range (including for leap years)
+*/
+bool	BitcoinExchange::isValidDate(const std::string &date) const
+{
+	if (date.length() != 10 || date[4] != '-' || date[7] != '-')
+		return (false);
+	for (std::size_t i = 0; i < 10; ++i)
+	{
+		if (i == 4 || i == 7)
+			continue;
+		else if (!std::isdigit(date[i]))
+			return (false);
+	}
+	int year = std::atoi(date.substr(0, 4).c_str());
+	int month = std::atoi(date.substr(5, 7).c_str());
+	int day = std::atoi(date.substr(8, 10).c_str());
+	if (year < 2009 || month < 1 || month > 12 || day < 1)
+		return (false);
+	int daysMonth[] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+	if (month == 2 && ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0))
+		daysMonth[1] = 29;
+	if (day > daysMonth[month - 1])
+		return (false);
+	return (true);
+}
+
+/* isValidValue checks 
+	- characters are numeric
+	- allow only one dot 
+	- invalid if value is empty string or starts/ends with dot
+*/
+bool	BitcoinExchange::isValidValue(const std::string &value) const
+{
+	if (value.empty() || value == "." || value[0] == '.' || value[value.length() - 1] == '.')
+		return (false);
+	int	dotFlag = 0;
+	for (std::size_t i = 0; i < value.length(); ++i)
+	{
+		if (value[i] == '.')
+		{
+			if (dotFlag == 0)
+				dotFlag = 1;
+			else
+				return (false);
+		}
+		else if (!std::isdigit(value[i]))
+			return (false);
+	}
+	return (true);
+}
+
+std::string	BitcoinExchange::trim(std::string const &str) const
+{
+	std::size_t	start = 0;
+	while (start < str.length() && std::isspace(str[start]))
+		++start;
+	std::size_t	end = str.length();
+	while (end > start && std::isspace(str[end - 1]))
+		--end;
+	return (str.substr(start, end - start));
+}
+
+bool	BitcoinExchange::processInput(std::string const &filename)
+{
+	std::ifstream	input(filename.c_str());
+	if (!input.is_open())
+	{
+		errorMsg("Error: Cannot open " + filename);
+		return (false);
+	}
+	std::string row;
+	if (!std::getline(input, row) || row != "date | value")
+	{
+		errorMsg("Error: Invalid input header");
+		return (false);
+	}
+	std::size_t	pipe;
+	std::string date;
+	std::string valueStr;
+	double	value;
+	while (std::getline(input, row))
+	{
+		pipe = row.find("|");
+		if (pipe == std::string::npos)
+		{
+			errorMsg("Error: Bad input => " + row);
+			continue;
+		}
+		date = trim(row.substr(0, pipe));
+		valueStr = trim(row.substr(pipe + 1));
+		value = std::atof(valueStr.c_str());
+		if (!isValidDate(date))
+			errorMsg("Error: Bad input => " + date);
+		else if (!isValidValue(valueStr))
+			errorMsg("Error: Bad input => " + valueStr);
+		else if (value < 0)
+			errorMsg("Error: not a positive number.");
+		else if (value > 1000)
+			errorMsg("Error: too large a number.");
+		else
+			printRate(date, value);	
+	}
+	return (true);
+}
+
+void	BitcoinExchange::printRate(std::string const &date, double &value) const
+{
+	std::map<std::string, double>::const_iterator	it = _database.lower_bound(date);
+	if (it != _database.end() && it->first == date) // exact match
+		std::cout << date << " => " << value << " = " << it->second * value<< std::endl;
+	else if (it != _database.begin())
+	{
+		--it;
+		std::cout << date << " => " << value << " = " << it->second * value << std::endl;
+	}
+	else
+		errorMsg("Error: Date predates database");
+}
+
+void	BitcoinExchange::printDatabase(void) const
+{
+	std::map<std::string, double>::const_iterator	it;
+	for (it = _database.begin(); it != _database.end(); ++it)
+		std::cout << it->first << ": " << it->second << std::endl;
 }

@@ -3,10 +3,14 @@
 
 #include <string>
 #include <fstream>
+#include <map>
+#include <iostream>
+#include <cstdlib>
 
-void	debugMsg(std::string msg)
+void	debugMsg(std::string msg);
+void	errorMsg(std::string msg);
 
-class BitcoinExchange:
+class BitcoinExchange
 {
 	public:
 		// Constructor
@@ -21,11 +25,18 @@ class BitcoinExchange:
 		
 		// Other functions
 		bool	loadDatabase(std::string const &filename);
-		double	getRate(std::string const &date) const;
-
-
+		bool	processInput(std::string const &filename);
+		void	printDatabase(void) const;
+		
 	private:
 		std::map<std::string, double> _database;
+		
+		bool	checkCSVExtension(std::string const &filename) const;
+		bool	isValidDate(const std::string &date) const;
+		bool	isValidValue(const std::string &value) const;
+		std::string	trim(std::string const &str) const;
+
+		void	printRate(std::string const &date, double &value) const;
 };
 
 #endif
