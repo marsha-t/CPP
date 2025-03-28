@@ -6,6 +6,7 @@
 #include <map>
 #include <iostream>
 #include <cstdlib>
+#include <stdexcept>
 
 void	debugMsg(std::string msg);
 void	errorMsg(std::string msg);
@@ -24,8 +25,8 @@ class BitcoinExchange
 		BitcoinExchange	&operator=(const BitcoinExchange &obj);
 		
 		// Other functions
-		bool	loadDatabase(std::string const &filename);
-		bool	processInput(std::string const &filename);
+		void	loadDatabase(std::string const &filename);
+		void	processInput(std::string const &filename);
 		void	printDatabase(void) const;
 		
 	private:

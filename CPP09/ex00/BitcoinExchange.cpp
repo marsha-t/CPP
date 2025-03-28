@@ -8,8 +8,7 @@ BitcoinExchange::BitcoinExchange(void)
 BitcoinExchange::BitcoinExchange(const BitcoinExchange &obj)
 {
 	debugMsg("BitcoinExchange initalised via copy");
-	// deep copy
-	(void)obj;
+	_database = obj._database;	
 }
 
 BitcoinExchange::~BitcoinExchange(void) 
@@ -21,30 +20,22 @@ BitcoinExchange	&BitcoinExchange::operator=(const BitcoinExchange &obj)
 {
 	if (this != &obj)
 	{
-		// deal with copy
+		debugMsg("BitcoinExchange copied via assignment");
+		_database = obj._database;
 	}
 	return (*this);
 }
 
-bool	BitcoinExchange::loadDatabase(std::string const &filename)
+void	BitcoinExchange::loadDatabase(std::string const &filename)
 {
 	if (!checkCSVExtension(filename))
-	{
-		errorMsg("Error: Database doesn't have csv extension");
-		return (false);
-	}
+		throw std::invalid_argument("Database must have .csv extension");
 	std::ifstream	database(filename.c_str());
 	if (!database.is_open())
-	{
-		errorMsg("Error: Cannot open " + filename);
-		return (false);
-	}
+		throw std::runtime_error("Cannot open database file: " + filename);
 	std::string	row;
 	if (!std::getline(database, row) || row != "date,exchange_rate")
-	{
-		errorMsg("Error: Invalid CSV header");
-		return (false);
-	}
+		throw std::runtime_error("Invalid CSV header in database file");
 	std::size_t	comma;
 	std::string date;
 	std::string valueStr;
@@ -53,26 +44,16 @@ bool	BitcoinExchange::loadDatabase(std::string const &filename)
 	{
 		comma = row.find(',');
 		if (comma == std::string::npos)
-		{
-			errorMsg ("Error: Bad line format in database");
-			return (false);
-		}
+			throw std::runtime_error("Bad line format in database");
 		date = trim(row.substr(0, comma));
 		valueStr = trim(row.substr(comma + 1));
 		value = std::atof(valueStr.c_str());
 		if (!isValidDate(date))
-		{
-			errorMsg("Error: Invalid date in database");
-			return (false);
-		}
-		if (!isValidValue(valueStr) || value < 0)
-		{	
-			errorMsg("Error: Invalid value in database");
-			return (false);
-		}
+			throw std::runtime_error("Invalid date in database");
+		if (!isValidValue(valueStr))
+			throw std::runtime_error("Invalid value in database");
 		_database.insert(std::pair<std::string, double>(date, value));
 	}
-	return (true);
 }
 
 bool	BitcoinExchange::checkCSVExtension(std::string const &filename) const
@@ -115,6 +96,7 @@ bool	BitcoinExchange::isValidDate(const std::string &date) const
 	- characters are numeric
 	- allow only one dot 
 	- invalid if value is empty string or starts/ends with dot
+	- invalid if contains '-' so can't have negative values
 */
 bool	BitcoinExchange::isValidValue(const std::string &value) const
 {
@@ -147,26 +129,25 @@ std::string	BitcoinExchange::trim(std::string const &str) const
 	return (str.substr(start, end - start));
 }
 
-bool	BitcoinExchange::processInput(std::string const &filename)
+void	BitcoinExchange::processInput(std::string const &filename)
 {
 	std::ifstream	input(filename.c_str());
 	if (!input.is_open())
-	{
-		errorMsg("Error: Cannot open " + filename);
-		return (false);
-	}
+		throw std::runtime_error("Cannot open input file: " + filename);
 	std::string row;
 	if (!std::getline(input, row) || row != "date | value")
-	{
-		errorMsg("Error: Invalid input header");
-		return (false);
-	}
+		throw std::runtime_error("Invalid header in input file");
 	std::size_t	pipe;
 	std::string date;
 	std::string valueStr;
 	double	value;
 	while (std::getline(input, row))
 	{
+		if (row.empty())
+		{
+			errorMsg("Error: Bad input => empty line");
+			continue;
+		}
 		pipe = row.find("|");
 		if (pipe == std::string::npos)
 		{
@@ -180,20 +161,17 @@ bool	BitcoinExchange::processInput(std::string const &filename)
 			errorMsg("Error: Bad input => " + date);
 		else if (!isValidValue(valueStr))
 			errorMsg("Error: Bad input => " + valueStr);
-		else if (value < 0)
-			errorMsg("Error: not a positive number.");
 		else if (value > 1000)
 			errorMsg("Error: too large a number.");
 		else
 			printRate(date, value);	
 	}
-	return (true);
 }
 
 void	BitcoinExchange::printRate(std::string const &date, double &value) const
 {
 	std::map<std::string, double>::const_iterator	it = _database.lower_bound(date);
-	if (it != _database.end() && it->first == date) // exact match
+	if (it != _database.end() && it->first == date)
 		std::cout << date << " => " << value << " = " << it->second * value<< std::endl;
 	else if (it != _database.begin())
 	{

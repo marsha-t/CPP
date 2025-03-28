@@ -1,7 +1,7 @@
 #include "BitcoinExchange.hpp"
-#include <iostream>
 
-bool debugOn = false;
+bool	debugOn = false;
+bool	errorOn = true;
 
 void	debugMsg(std::string msg)
 {
@@ -11,21 +11,23 @@ void	debugMsg(std::string msg)
 
 void	errorMsg(std::string msg)
 {
-	std::cerr << msg << std::endl;
+	if (errorOn)
+		std::cerr << msg << std::endl;
 }
 
 int	main(int argc, char **argv)
 {
-	if (argc != 2)
+	try
 	{
-		errorMsg("Invalid number of arguments");
-		return (1);
+		if (argc != 2)
+			throw std::invalid_argument("Invalid number of arguments");
+		BitcoinExchange	exchange;
+		exchange.loadDatabase("data.csv");
+		exchange.processInput(argv[1]);
 	}
-	BitcoinExchange	exchange;
-	if (!exchange.loadDatabase("data.csv"))
-		return (1);
-	// exchange.printDatabase();
-	if (!exchange.processInput(argv[1]))
-		return (1);
+	catch (std::exception &e)
+	{
+		errorMsg(std::string("Exception: ") + e.what());
+	}
 	return (0);
 }
