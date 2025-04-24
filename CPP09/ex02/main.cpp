@@ -19,10 +19,17 @@ int	main(int argc, char **argv)
 {
 	try
 	{
-		if (argc < 2)
-			throw std::invalid_argument("Invalid number of arguments");
 		PmergeMe	merge;
-		// expression.evaluate(argv[1]);
+		merge.parse(argc, argv);
+		merge.printBefore();
+		if (merge.getSize() == 1)
+		{
+			merge.printAfter();
+			return (0); 
+		}
+		merge.sort();
+		// merge.checkSort();
+		merge.printAfter();
 	}
 	catch (std::exception &e)
 	{
