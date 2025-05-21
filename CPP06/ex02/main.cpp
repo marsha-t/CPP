@@ -52,21 +52,21 @@ void	identify(Base &p)
 		std::cout << "Class A" << std::endl;
 		return ;
 	}
-	catch (std::bad_cast &bc) {}
+	catch (...) {}
 	try
 	{
 		(void) dynamic_cast<B &>(p);
 		std::cout << "Class B" << std::endl;
 		return ;
 	}
-	catch (std::bad_cast &bc) {}
+	catch (...) {}
 	try
 	{
 		(void) dynamic_cast<C &>(p);
 		std::cout << "Class C" << std::endl;
 		return ;
 	}
-	catch (std::bad_cast &e) {}
+	catch (...) {}
 	std::cout << "Unknown" << std::endl;
 	return ;
 }

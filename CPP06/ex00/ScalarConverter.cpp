@@ -77,8 +77,6 @@ void	ScalarConverter::convertFloat(double d)
 		std::cout << "float: -inff"	<< std::endl;
 	else if (d > std::numeric_limits<float>::max())
 		std::cout << "float: +inff"	<< std::endl;
-	else if (isnan(d))
-		std::cout << "float: nanf" << std::endl;
 	else
 		std::cout << d <<"float: impossible" << std::endl;
 }
