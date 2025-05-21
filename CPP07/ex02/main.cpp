@@ -23,12 +23,12 @@ void	testIntArray(void)
 	std::cout << "--- Int Array (5) ---" << std::endl;
 	Array<int>	intArray(5);
 	std::cout << "Size of int[5]: " << intArray.size() <<std::endl;
-	for (unsigned int i = 0; i < intArray.size(); i++)
+	for (unsigned int i = 0; i < intArray.size(); ++i)
 		std::cout << intArray[i] << " " << std::flush;
 	
-	intArray[2] = 2;
 	std::cout << std::endl; 
-	for (unsigned int i = 0; i < intArray.size(); i++)
+	intArray[2] = 2;
+	for (unsigned int i = 0; i < intArray.size(); ++i)
 		std::cout << intArray[i] << " " << std::flush;
 	std::cout << std::endl; 
 
@@ -45,7 +45,7 @@ void	testIntArray(void)
 	std::cout << "--- Copy ---" << std::endl;
 	Array<int> copyIntArray(intArray);
 	std::cout << "Size of copy: " << copyIntArray.size() <<std::endl;
-	for (unsigned int i = 0; i < copyIntArray.size(); i++)
+	for (unsigned int i = 0; i < copyIntArray.size(); ++i)
 	{
 		std::cout << copyIntArray[i] << " " << std::flush;
 	}
@@ -53,7 +53,7 @@ void	testIntArray(void)
 	
 	Array<int>	newIntArray(3);
 	std::cout << "Size of newIntArray: " << newIntArray.size() << std::endl;
-	for (unsigned int i = 0; i < newIntArray.size(); i++)
+	for (unsigned int i = 0; i < newIntArray.size(); ++i)
 	{
 		std::cout << newIntArray[i] << " " <<std::flush;
 	}
@@ -61,7 +61,7 @@ void	testIntArray(void)
 
 	newIntArray = intArray; 
 	std::cout << "Size of newIntArray: " << newIntArray.size() << std::endl;
-	for (unsigned int i = 0; i < newIntArray.size(); i++)
+	for (unsigned int i = 0; i < newIntArray.size(); ++i)
 	{
 		std::cout << newIntArray[i] << " " <<std::flush;
 	}
@@ -86,15 +86,15 @@ void	testStringArray(void)
 	std::cout << "--- String Array (5) ---" << std::endl;
 	Array<std::string>	strArray(5);
 	std::cout << "Size of str[5]: " << strArray.size() <<std::endl;
-	for (unsigned int i = 0; i < strArray.size(); i++)
+	for (unsigned int i = 0; i < strArray.size(); ++i)
 	{
 		if (strArray[i] == "")
 			std::cout << "_ " << std::flush;
 	}
 	
-	strArray[2] = "a";
 	std::cout << std::endl; 
-	for (unsigned int i = 0; i < strArray.size(); i++)
+	strArray[2] = "a";
+	for (unsigned int i = 0; i < strArray.size(); ++i)
 	{
 		if (strArray[i] == "")
 			std::cout << "_ " << std::flush;
@@ -105,7 +105,7 @@ void	testStringArray(void)
 
 	try
 	{
-		strArray[5] = 2;
+		strArray[5] = '!';
 	}
 	catch (std::exception &e)
 	{
@@ -116,7 +116,7 @@ void	testStringArray(void)
 	std::cout << "--- Copy ---" << std::endl;
 	Array<std::string> copyStrArray(strArray);
 	std::cout << "Size of copy: " << copyStrArray.size() <<std::endl;
-	for (unsigned int i = 0; i < copyStrArray.size(); i++)
+	for (unsigned int i = 0; i < copyStrArray.size(); ++i)
 	{
 		if (strArray[i] == "")
 			std::cout << "_ " << std::flush;
@@ -127,7 +127,7 @@ void	testStringArray(void)
 	
 	Array<std::string>	newStrArray(3);
 	std::cout << "Size of newStrArray: " << newStrArray.size() << std::endl;
-	for (unsigned int i = 0; i < newStrArray.size(); i++)
+	for (unsigned int i = 0; i < newStrArray.size(); ++i)
 	{
 		if (newStrArray[i] == "")
 			std::cout << "_ " << std::flush;
@@ -138,7 +138,7 @@ void	testStringArray(void)
 
 	newStrArray = strArray; 
 	std::cout << "Size of newStrArray: " << newStrArray.size() << std::endl;
-	for (unsigned int i = 0; i < newStrArray.size(); i++)
+	for (unsigned int i = 0; i < newStrArray.size(); ++i)
 	{
 		if (strArray[i] == "")
 			std::cout << "_ " << std::flush;
@@ -152,7 +152,7 @@ void	testConstArray(void)
 {
 	const Array<int> intArray(5);
 	std::cout << "Size of int[5]: " << intArray.size() <<std::endl;
-	for (unsigned int i = 0; i < intArray.size(); i++)
+	for (unsigned int i = 0; i < intArray.size(); ++i)
 		std::cout << intArray[i] << " " << std::flush;
 	std::cout << std::endl;
 	// intArray[2] = 2;

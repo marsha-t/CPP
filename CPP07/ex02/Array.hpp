@@ -16,7 +16,7 @@ class	Array
 		Array<T>(const Array<T> &obj): _size(obj._size)
 		{
 			_arr = new T[_size];
-			for (unsigned int i = 0; i < _size; i++)
+			for (unsigned int i = 0; i < _size; ++i)
 			{
 				_arr[i] = obj._arr[i];
 			}
@@ -33,7 +33,7 @@ class	Array
 				delete[] _arr;
 				_size = obj._size;
 				_arr = new T[_size];
-				for (unsigned int i = 0; i < _size; i++)
+				for (unsigned int i = 0; i < _size; ++i)
 				{
 					_arr[i] = obj._arr[i];
 				}

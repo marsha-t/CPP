@@ -1,22 +1,38 @@
 #include "iter.hpp"
 
-void	testNormalCases(void)
+void	testNormalAndConstCases(void)
 {
 	std::cout << "C String" << std::endl;
 	char cString[] = "abc";
 	iter(cString, 3, ::print<char>);
 
+	std::cout << "\nConst C String" << std::endl;
+	const char constCString[] = "abc";
+	iter(constCString, 3, ::print<char>);
+
 	std::cout << "\nInt Array" << std::endl;
 	int	intArray[] = {40, 41, 42, 43, 44};
 	iter(intArray, 5, ::print<int>);
+	
+	std::cout << "\nConst Int Array" << std::endl;
+	int constIntArray[] = {40, 41, 42, 43, 44};
+	iter(constIntArray, 5, ::print<int>);
 
 	std::cout << "\nFloat Array" << std::endl;
 	float	floatArray[] = {1.1, 2.2, 3.3, 4.4};
 	iter(floatArray, 4, ::print<float>); 
+	
+	std::cout << "\nConst Float Array" << std::endl;
+	float	constFloatArray[] = {1.1, 2.2, 3.3, 4.4};
+	iter(constFloatArray, 4, ::print<float>); 
 
 	std::cout << "\nArray of Strings" << std::endl;
 	std::string	words[] = {"Hello", "World", "!"};
 	iter(words, 3, ::print<std::string>);
+	
+	std::cout << "\nConst Array of Strings" << std::endl;
+	const std::string	constWords[] = {"Hello", "World", "!"};
+	iter(constWords, 3, ::print<std::string>);
 }
 
 void	testEmptyArrays(void)
@@ -38,7 +54,7 @@ void	testEmptyArrays(void)
 	iter(words, 0, ::print<std::string>);
 }
 
-void	testsingleElement(void)
+void	testSingleElement(void)
 {
 	std::cout << "C String" << std::endl;
 	char cString[] = "a";
@@ -57,18 +73,36 @@ void	testsingleElement(void)
 	iter(words, 1, ::print<std::string>);
 }
 
+void	testAddOneFunc(void)
+{
+	std::cout << "\nInt Array (Before)" << std::endl;
+	int	intArray[] = {40, 41, 42, 43, 44};
+	iter(intArray, 5, ::print<int>);
+	iter(intArray, 5, ::addOne<int>);
+	std::cout << "\nInt Array (After)" << std::endl;
+	iter(intArray, 5, ::print<int>);
+
+
+	std::cout << "\nFloat Array (Before)" << std::endl;
+	float	floatArray[] = {1.1, 2.2, 3.3, 4.4};
+	iter(floatArray, 4, ::print<float>); 
+	iter(floatArray, 4, ::addOne<float>); 
+	std::cout << "\nFloat Array (After)" << std::endl;
+	iter(floatArray, 4, ::print<float>); 
+}
+
 int	main(int argc, char **argv)
 {
 	if (argc == 2)
 	{
 		int	test = std::atoi(argv[1]);
-		if (test < 0 || test > 2)
+		if (test < 0 || test > 3)
 			return (EXIT_FAILURE);
 		switch (test)
 		{
 			case 0:
 			{
-				testNormalCases();
+				testNormalAndConstCases();
 				break ;
 			}
 			case 1:
@@ -78,7 +112,12 @@ int	main(int argc, char **argv)
 			}
 			case 2:
 			{
-				testsingleElement();
+				testSingleElement();
+				break ;
+			}
+			case 3:
+			{
+				testAddOneFunc();
 				break ;
 			}
 		}
