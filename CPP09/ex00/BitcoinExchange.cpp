@@ -162,7 +162,7 @@ void	BitcoinExchange::processInput(std::string const &filename)
 		else if (!isValidValue(valueStr))
 			errorMsg("Error: Bad input => " + valueStr);
 		else if (value > 1000)
-			errorMsg("Error: too large a number.");
+			errorMsg("Error: too large a number");
 		else
 			printRate(date, value);	
 	}
