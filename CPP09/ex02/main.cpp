@@ -28,7 +28,7 @@ int	main(int argc, char **argv)
 			return (0); 
 		}
 		merge.sort();
-		// merge.checkSort();
+		merge.checkSort();
 		merge.printAfter();
 	}
 	catch (std::exception &e)

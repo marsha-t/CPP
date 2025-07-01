@@ -73,10 +73,10 @@ void	PmergeMe::sort(void)
 {
 	clock_t	start = clock();
 	sortVector(_vector);
-	_vectorDuration = 1000000 * (clock() - start) / CLOCKS_PER_SEC; // document
+	_vectorDuration = 1000000 * (clock() - start) / CLOCKS_PER_SEC;
 	start = clock();
 	sortDeque(_deque);
-	_dequeDuration = 1000000 * (clock() - start) / CLOCKS_PER_SEC; // document
+	_dequeDuration = 1000000 * (clock() - start) / CLOCKS_PER_SEC;
 }
 
 void	PmergeMe::sortVector(std::vector<int> &toSort)

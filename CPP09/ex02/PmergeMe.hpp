@@ -26,7 +26,8 @@ class PmergeMe
 		void	sort(void);
 		void	checkSort(void) const;
 		void	printAfter(void) const;
-		private:
+	
+	private:
 		std::vector<int>	_vector;
 		std::deque<int>		_deque;
 		int					_size;
