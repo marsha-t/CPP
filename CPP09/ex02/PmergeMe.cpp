@@ -72,14 +72,14 @@ void	PmergeMe::printBefore(void) const
 void	PmergeMe::sort(void)
 {
 	clock_t	start = clock();
-	sortVector(_vector);
+	sort(_vector);
 	_vectorDuration = 1000000 * (clock() - start) / CLOCKS_PER_SEC;
 	start = clock();
-	sortDeque(_deque);
+	sort(_deque);
 	_dequeDuration = 1000000 * (clock() - start) / CLOCKS_PER_SEC;
 }
 
-void	PmergeMe::sortVector(std::vector<int> &toSort)
+void	PmergeMe::sort(std::vector<int> &toSort)
 {
 	size_t	size = toSort.size();
 	if (size <= 1)
@@ -97,15 +97,47 @@ void	PmergeMe::sortVector(std::vector<int> &toSort)
 	}
 	if (size % 2 != 0)
 		pending.push_back(toSort[size - 1]);
-	sortVector(mainChain);
-	for (size_t i = 0; i < pending.size(); ++i)
+	sort(mainChain);
+	std::vector<size_t> order = getJacobsthalIndicesVector(pending.size());
+	for (size_t i = 0; i < order.size(); ++i)
 	{
-		binaryInsertVector(mainChain, pending[i]);
+		binaryInsert(mainChain, pending[order[i]]);
 	}
 	toSort = mainChain;
 }
 
-void	PmergeMe::binaryInsertVector(std::vector<int> &vec, int toInsert)
+// Jacobsthal Sequence
+// J(0) = 0 
+// J(1) = 1
+// J(n) = J(n - 1) + 2 x J(n - 2) for n >= 2
+std::vector<size_t> PmergeMe::getJacobsthalIndicesVector(size_t n)
+{
+	std::vector<size_t> indices;
+	std::vector<bool> usedIndices(n, false);
+
+	size_t j0 = 0;
+	size_t j1 = 1;
+
+	while (j1 < n)
+	{
+		if (!usedIndices[j1])
+		{
+			indices.push_back(j1);
+			usedIndices[j1] = true;
+		}
+		size_t next = j1 + 2 * j0;
+		j0 = j1;
+		j1 = next;
+	}
+	for (size_t i = 0; i < n; ++i)
+	{
+		if (!usedIndices[i])
+			indices.push_back(i);
+	}
+	return (indices);
+}
+
+void	PmergeMe::binaryInsert(std::vector<int> &vec, int toInsert)
 {
 	size_t	start = 0;
 	size_t	end = vec.size();
@@ -121,7 +153,7 @@ void	PmergeMe::binaryInsertVector(std::vector<int> &vec, int toInsert)
 	vec.insert(vec.begin() + start, toInsert);
 }
 
-void	PmergeMe::sortDeque(std::deque<int> &toSort)
+void	PmergeMe::sort(std::deque<int> &toSort)
 {
 	size_t	size = toSort.size();
 	if (size <= 1)
@@ -139,15 +171,42 @@ void	PmergeMe::sortDeque(std::deque<int> &toSort)
 	}
 	if (size % 2 != 0)
 		pending.push_back(toSort[size - 1]);
-	sortDeque(mainChain);
+	sort(mainChain);
+	std::deque<size_t> order = getJacobsthalIndicesDeque(pending.size());
 	for (size_t i = 0; i < pending.size(); ++i)
 	{
-		binaryInsertDeque(mainChain, pending[i]);
+		binaryInsert(mainChain, pending[order[i]]);
 	}
 	toSort = mainChain;
 }
 
-void	PmergeMe::binaryInsertDeque(std::deque<int> &deq, int toInsert)
+std::deque<size_t> PmergeMe::getJacobsthalIndicesDeque(size_t n)
+{
+	std::deque<size_t> indices;
+	std::deque<bool> usedIndices(n, false);
+
+	size_t j0 = 0;
+	size_t j1 = 1;
+	while (j1 < n)
+	{
+		if (!usedIndices[j1])
+		{
+			indices.push_back(j1);
+			usedIndices[j1] = true;
+		}
+		size_t next = j1 + 2 * j0;
+		j0 = j1;
+		j1 = next;
+	}
+	for (size_t i = 0; i < n; ++i)
+	{
+		if (!usedIndices[i])
+			indices.push_back(i);
+	}
+	return (indices);
+}
+
+void	PmergeMe::binaryInsert(std::deque<int> &deq, int toInsert)
 {
 	size_t	start = 0;
 	size_t	end = deq.size();

@@ -33,11 +33,12 @@ class PmergeMe
 		int					_size;
 		double				_vectorDuration;
 		double				_dequeDuration;
-		void	sortVector(std::vector<int> &toSort);
-		void	sortDeque(std::deque<int> &toSort);
-		void	binaryInsertVector(std::vector<int> &vec, int toInsert);
-		void	binaryInsertDeque(std::deque<int> &vec, int toInsert);
-
+		void	sort(std::vector<int> &toSort);
+		void	sort(std::deque<int> &toSort);
+		std::vector<size_t> getJacobsthalIndicesVector(size_t n);
+		std::deque<size_t> getJacobsthalIndicesDeque(size_t n);
+		void	binaryInsert(std::vector<int> &vec, int toInsert);
+		void	binaryInsert(std::deque<int> &vec, int toInsert);
 };
 
 #endif
