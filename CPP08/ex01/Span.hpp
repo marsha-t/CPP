@@ -31,6 +31,7 @@ class	Span
 			_vector.insert(_vector.end(), begin, end);
 			_validShortestSpan = false;
 		}
+		unsigned int size(void) const;
 		
 	private:
 		unsigned int		_maxSize;

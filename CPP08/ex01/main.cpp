@@ -23,6 +23,7 @@ void	testOverflow(Span &mySpan)
 
 void	testSpan(Span &mySpan)
 {
+	std::cout << "Size: " << mySpan.size() << std::endl;
 	try
 	{
 		std::cout << "Shortest: " << mySpan.shortestSpan() << std::endl;
@@ -57,28 +58,15 @@ int	main(int argc, char **argv)
 	{
 		case 0:
 			break ;
+		case 3:
+			mySpan.addNumber(5);
+			// fall through
+		case 2:
+			mySpan.addNumber(3);
+			// fall through
 		case 1:
 			mySpan.addNumber(10);
 			break ;
-		case 2:
-			mySpan.addNumber(10);
-			mySpan.addNumber(3);
-			break ;
-		case 3:
-			mySpan.addNumber(10);
-			mySpan.addNumber(3);
-			mySpan.addNumber(5);
-			break ;
-
-		// case 3:
-		// 	mySpan.addNumber(5);
-		// 	// fall through
-		// case 2:
-		// 	mySpan.addNumber(3);
-		// 	// fall through
-		// case 1:
-		// 	mySpan.addNumber(10);
-		// 	break ;
 		case 4:
 		{
 			std::vector<int>	myVector;

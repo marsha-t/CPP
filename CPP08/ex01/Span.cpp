@@ -39,7 +39,7 @@ unsigned int	Span::shortestSpan(void)
 	unsigned int	min = std::numeric_limits<unsigned int>::max();
 	for (std::vector<int>::const_iterator it = sorted.begin() + 1; it != sorted.end(); ++it)
 	{
-		unsigned int dif = std::abs(*(it - 1) - *it);
+		unsigned int dif = static_cast<unsigned int>(std::abs(*(it - 1) - *it));
 		if (dif < min)
 			min = dif;
 	}
@@ -52,6 +52,12 @@ unsigned int	Span::longestSpan(void)
 {
 	if (_vector.size() < 2)
 		throw std::runtime_error("Not enough numbers to calculate span");
-	unsigned int	max = *std::max_element(_vector.begin(), _vector.end()) - *std::min_element(_vector.begin(), _vector.end());
-	return (max);
+	int min = *std::min_element(_vector.begin(), _vector.end());
+	int max = *std::max_element(_vector.begin(), _vector.end());
+	return (static_cast<unsigned int>(max - min));
+}
+
+unsigned int Span::size(void) const
+{
+	return _vector.size();
 }

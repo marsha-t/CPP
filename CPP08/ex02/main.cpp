@@ -51,11 +51,15 @@ void	testCopy(void)
 	stack2.push(2);
 	std::cout << "\nTop of stack2: " << stack2.top() << std::endl;
 	std::cout << "Size of stack2: " << stack2.size() << std::endl;
+	std::cout << "Top of stack1: " << stack1.top() << std::endl;
+	std::cout << "Size of stack1: " << stack1.size() << std::endl;
 
 	MutantStack<int>	stack3;
 	stack3 = stack2;
 	std::cout << "\nTop of stack3: " << stack3.top() << std::endl;
 	std::cout << "Size of stack3: " << stack3.size() << std::endl;
+	std::cout << "Top of stack2: " << stack2.top() << std::endl;
+	std::cout << "Size of stack2: " << stack2.size() << std::endl;
 }
 
 void	testIterator(void)
